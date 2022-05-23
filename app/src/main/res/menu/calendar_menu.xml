@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/m1"
+        android:title="1- محرم" />
+
+    <item
+        android:id="@+id/m2"
+        android:title="2- صفر" />
+    <item
+        android:id="@+id/m3"
+        android:title="3- ربيع اول" />
+    <item
+        android:id="@+id/m4"
+        android:title="4- ربيع الثاني" />
+    <item
+        android:id="@+id/m5"
+        android:title="5- جماد الأول" />
+    <item
+
+        android:id="@+id/m6"
+        android:title="6- جماد الثاني" />
+    <item
+        android:id="@+id/m7"
+        android:title="7- رجب" />
+    <item
+        android:id="@+id/m8"
+        android:title="8- شعبان" />
+    <item
+        android:id="@+id/m9"
+        android:title="9- رمضان" />
+    <item
+        android:id="@+id/m10"
+        android:title="10- شوال" />
+    <item
+        android:id="@+id/m11"
+        android:title="11- ذو القعدة" />
+    <item
+        android:id="@+id/m12"
+        android:title="12- ذو الحجة" />
+</menu>

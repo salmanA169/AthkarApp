@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.athkar.sa.ui.homeScreen.HomeScreenFragment"
+        android:label="home_screen_fragment"
+        tools:layout="@layout/home_screen_fragment" >
+        <action
+            android:id="@+id/action_homeScreen_to_prayFragment"
+            app:destination="@id/prayFragment"
+
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeScreen_to_counterFragment"
+            app:destination="@id/counterFragment" />
+        <action
+            android:id="@+id/action_homeScreen_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_homeScreen_to_qiblaFragment"
+            app:destination="@id/qiblaFragment" />
+        <action
+            android:id="@+id/action_homeScreen_to_randomAthkarFragment"
+            app:destination="@id/randomAthkarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.favorite.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" />
+    <fragment
+        android:id="@+id/counterFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.counter.CounterFragment"
+        android:label="counter_fragment"
+        tools:layout="@layout/counter_fragment" />
+    <fragment
+        android:id="@+id/prayFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.pray.PrayFragment"
+        android:label="pray_fragment"
+        tools:layout="@layout/pray_fragment" >
+        <action
+            android:id="@+id/action_prayFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qiblaFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.qibla.QiblaFragment"
+        android:label="qibla_fragment"
+        tools:layout="@layout/qibla_fragment" />
+    <fragment
+        android:id="@+id/randomAthkarFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.randomUi.RandomAthkarFragment"
+        android:label="random_athkar_fragment"
+        tools:layout="@layout/random_athkar_fragment" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.pray.calendar.CalendarFragment"
+        android:label="CalendarFragment" />
+</navigation>

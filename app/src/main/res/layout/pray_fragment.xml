@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_pray"
+    android:fitsSystemWindows="true"
+    android:layoutDirection="rtl"
+
+    tools:context=".ui.homeScreen.container.pray.PrayFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#16000000"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="الرياض"
+            android:textColor="#F8D74A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+        <TextView
+            android:id="@+id/tv_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="الاربعاء"
+            android:textColor="#F8D74A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_counter_next_pray" />
+
+        <TextView
+            android:id="@+id/tv_next_pray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="المغرب بعد"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+
+        <TextView
+            android:id="@+id/tv_counter_next_pray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="00:00:00"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_next_pray" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView3"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            app:cardBackgroundColor="#333D48"
+            app:cardCornerRadius="8dp"
+            app:contentPadding="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_today"
+            app:layout_constraintStart_toEndOf="@+id/tv_today"
+            app:layout_constraintTop_toTopOf="@+id/tv_today"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/tv_date_ar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1443-09-26"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView2"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            app:cardBackgroundColor="#333D48"
+            app:cardCornerRadius="8dp"
+            app:contentPadding="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_today"
+            app:layout_constraintEnd_toStartOf="@+id/tv_today"
+            app:layout_constraintTop_toTopOf="@+id/tv_today">
+
+            <TextView
+                android:id="@+id/tv_date_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2022-04-27"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView4"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#333D48"
+            app:cardCornerRadius="8dp"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView3"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_prayes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="6"
+                tools:listitem="@layout/pray_item_rv" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView4"
+            app:layout_constraintVertical_bias="0.0">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_calendar"
+                style="@style/Widget.Material3.Button.IconButton.customBackGroundAndRipple"
+                app:icon="@drawable/calendar_icon"
+                />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_Qibla"
+                style="@style/Widget.Material3.Button.IconButton.customBackGroundAndRipple"
+                app:icon="@drawable/location_icon" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sound"
+                style="@style/Widget.Material3.Button.IconButton.customBackGroundAndRipple"
+                app:icon="@drawable/sound_icon" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_refresh_location"
+                style="@style/Widget.Material3.Button.IconButton.customBackGroundAndRipple"
+                app:icon="@drawable/refresh_icon" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_settings"
+                style="@style/Widget.Material3.Button.IconButton.customBackGroundAndRipple"
+                app:icon="@drawable/settings_icon"
+
+                />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
