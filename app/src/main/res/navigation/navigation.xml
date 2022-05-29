@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_prayFragment_to_calendarFragment"
             app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_prayFragment_to_qiblaFragment"
+            app:destination="@id/qiblaFragment" />
     </fragment>
     <fragment
         android:id="@+id/qiblaFragment"

@@ -1,9 +1,15 @@
 package com.athkar.sa.ui.homeScreen.container.pray
 
+import android.animation.Animator
+import android.hardware.SensorManager
+import android.location.LocationManager
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.RotateAnimation
+import androidx.core.location.LocationListenerCompat
 import androidx.fragment.app.viewModels
+import androidx.room.RoomMasterTable
 import com.athkar.sa.Constants
 import com.athkar.sa.adapters.PrayAdapter
 import com.athkar.sa.databinding.PrayFragmentBinding
@@ -38,8 +44,12 @@ class PrayFragment :
         toolbar2.setNavigationOnClickListener {
             controller.popBackStack()
         }
+
         btnCalendar.setOnClickListener {
             controller.navigate(PrayFragmentDirections.actionPrayFragmentToCalendarFragment())
+        }
+        btnQibla.setOnClickListener {
+            controller.navigate(PrayFragmentDirections.actionPrayFragmentToQiblaFragment())
         }
     }
 
@@ -60,7 +70,6 @@ class PrayFragment :
             binding.tvCity.text = it.city
             binding.tvToday.text = parseDate.format(ConstantPatternsDate.todayPattern)
         }
-
     }
 
     private fun startTimer(timeNextPray: Long, prayName: PrayName) {

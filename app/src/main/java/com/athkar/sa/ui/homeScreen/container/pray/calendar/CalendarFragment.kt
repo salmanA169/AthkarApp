@@ -51,9 +51,10 @@ class CalendarFragment : BaseFragment<CalendarFragmentBinding>({ inflater, conta
         if (menuBuilder != null) {
             changeMenuItemByMonth(hijrahDate,menuBuilder)
         }
+        toolbar.setNavigationOnClickListener {
+            controller.popBackStack()
+        }
         rvCalendar.adapter = calendarAdapter
-
-
     }
 
     private fun changeMenuItemByMonth(month:Int,menu:Menu) {
