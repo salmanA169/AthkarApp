@@ -1,6 +1,6 @@
 package com.athkar.sa.models
 
-data class Athkar(val category: AthkarCategory)
+
 enum class AthkarCategory(val nameAthkar: String) {
     MORNING("أذكار الصباح"),
     EVENING("أذكار المساء"),
@@ -13,8 +13,6 @@ enum class AthkarCategory(val nameAthkar: String) {
 
 }
 
-fun getAthkar(): List<Athkar> {
-   return AthkarCategory.values().map {
-       Athkar(it)
-   }
+fun getAthkar(): List<AthkarCategory> {
+   return AthkarCategory.values().toList()
 }

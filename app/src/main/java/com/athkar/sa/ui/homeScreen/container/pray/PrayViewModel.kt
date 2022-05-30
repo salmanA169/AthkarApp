@@ -39,6 +39,8 @@ class PrayViewModel @Inject constructor() : ViewModel() {
     )
     private val _prayInfo = MutableLiveData(prayInfoTest.getDateToday())
     val prayInfo:LiveData<DateToday> = _prayInfo
+
+    // TODO: add combine flow for prayNotification and pray Info
     init {
         _prays.value = prayInfoTest.getPrays(PrayNotification(
             fajer = true,

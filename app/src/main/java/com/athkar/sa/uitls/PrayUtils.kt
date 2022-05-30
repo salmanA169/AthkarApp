@@ -40,7 +40,7 @@ fun List<Pray>.calculateNextPrayTime(currentTime: LocalTime = LocalTime.now()):P
 //            break
 //        }
         val currentPray  = LocalTime.ofSecondOfDay(i.second)
-        val nextPray = find {it.prayName == i.first.orderPray(i.first)}!!
+        val nextPray = find {it.prayName == i.first.orderPray()}!!
         val nextPrayTime = LocalTime.ofSecondOfDay(nextPray.timePray)
         if (TimeUtils.isTimeBetween(currentTime,currentPray,nextPrayTime)){
             mNextPrayName = nextPray.prayName

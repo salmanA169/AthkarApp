@@ -16,8 +16,8 @@ data class PrayInfo(
 
 enum class PrayName(val namePray: String) {
     FAJAR("الفجر"), SUNRISE("الشروق"), DUHAR("الظهر"), ASAR("العصر"), MAGHRAB("المغرب"), ISHA("العشاء");
-    fun orderPray(prayName: PrayName):PrayName {
-        return when(prayName){
+    fun orderPray():PrayName {
+        return when(this){
             FAJAR -> SUNRISE
             SUNRISE -> DUHAR
             DUHAR -> ASAR

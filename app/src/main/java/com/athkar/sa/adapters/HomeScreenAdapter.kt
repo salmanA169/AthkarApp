@@ -10,13 +10,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.athkar.sa.databinding.AthkarContainerBinding
 import com.athkar.sa.databinding.AthkarItemBinding
-import com.athkar.sa.models.Athkar
 import com.athkar.sa.models.AthkarCategory
-import com.athkar.sa.ui.homeScreen.HomeScreenFragment
 import com.athkar.sa.ui.homeScreen.HomeScreenFragmentDirections
 import com.athkar.sa.ui.homeScreen.UiHomeScreens
-import com.athkar.sa.uitls.setColorAthkat
-import kotlin.time.toDuration
+import com.athkar.sa.uitls.setColorAthkar
 
 interface HomeScreenEvents {
     fun onAthkerClick(athkarCategory: AthkarCategory)
@@ -75,6 +72,9 @@ class AthkarContainerViewHolder(private val binding:AthkarContainerBinding):Recy
         binding.btnPray.setOnClickListener {
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToPrayFragment())
         }
+        binding.favorite.setOnClickListener{
+            onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToFavoriteFragment())
+        }
     }
     companion object{
         fun from(viewGroup: ViewGroup):AthkarContainerViewHolder{
@@ -88,14 +88,14 @@ class AthkarContainerViewHolder(private val binding:AthkarContainerBinding):Recy
 class HomeScreenViewHolder(private val binding: AthkarItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(athkar: Athkar, onClick: HomeScreenEvents) {
-        binding.view.setBackgroundColor(athkar.setColorAthkat())
-        binding.materialButton.setTextColor(athkar.setColorAthkat())
-        binding.materialButton.text = athkar.category.nameAthkar
+    fun bind(athkar: AthkarCategory, onClick: HomeScreenEvents) {
+        binding.view.setBackgroundColor(athkar.setColorAthkar())
+        binding.materialButton.setTextColor(athkar.setColorAthkar())
+        binding.materialButton.text = athkar.nameAthkar
         binding.materialButton.rippleColor =
-            ColorStateList.valueOf(ColorUtils.setAlphaComponent(athkar.setColorAthkat(), 90))
+            ColorStateList.valueOf(ColorUtils.setAlphaComponent(athkar.setColorAthkar(), 90))
 
-        onClick.onAthkerClick(athkar.category)
+        onClick.onAthkerClick(athkar)
     }
 
     companion object {

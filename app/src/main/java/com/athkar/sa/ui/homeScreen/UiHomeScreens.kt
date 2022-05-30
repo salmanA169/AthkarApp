@@ -1,11 +1,11 @@
 package com.athkar.sa.ui.homeScreen
 
-import com.athkar.sa.models.Athkar
+import com.athkar.sa.models.AthkarCategory
 import com.athkar.sa.models.getAthkar
 
 sealed class UiHomeScreens {
     object AthkarContainer : UiHomeScreens()
-    class AthkarsUI(val athkar: Athkar) : UiHomeScreens()
+    class AthkarsUI(val athkar: AthkarCategory) : UiHomeScreens()
 }
 
 fun bindScreens(): List<UiHomeScreens> {

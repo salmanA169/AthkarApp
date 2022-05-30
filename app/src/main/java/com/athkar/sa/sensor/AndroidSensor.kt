@@ -1,11 +1,9 @@
-package com.athkar.sensor
+package com.athkar.sa.sensor
 
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorManager
-import android.location.LocationManager
-import android.util.Log
 
 abstract class AndroidSensor(
     private val context: Context,

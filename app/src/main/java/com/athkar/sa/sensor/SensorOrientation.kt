@@ -1,4 +1,4 @@
-package com.athkar.sensor
+package com.athkar.sa.sensor
 
 import android.content.Context
 import android.content.pm.PackageManager

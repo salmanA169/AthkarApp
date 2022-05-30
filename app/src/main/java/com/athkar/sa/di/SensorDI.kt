@@ -1,7 +1,7 @@
 package com.athkar.sa.di
 
 import android.content.Context
-import com.athkar.sensor.SensorOrientation
+import com.athkar.sa.sensor.SensorOrientation
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

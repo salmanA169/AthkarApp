@@ -6,11 +6,10 @@ import android.view.animation.RotateAnimation
 import androidx.fragment.app.viewModels
 import com.athkar.sa.databinding.QiblaFragmentBinding
 import com.athkar.sa.uitls.BaseFragment
-import com.athkar.sensor.SensorEventListener
-import com.athkar.sensor.SensorOrientation
+import com.athkar.sa.sensor.SensorEventListener
+import com.athkar.sa.sensor.SensorOrientation
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class QiblaFragment : BaseFragment<QiblaFragmentBinding>({inflater, container ->
