@@ -8,11 +8,10 @@ import com.athkar.sa.db.entity.Pray
 import com.athkar.sa.db.entity.PrayInfo
 import com.athkar.sa.db.entity.PrayNotification
 import com.athkar.sa.uitls.getDateToday
-import com.athkar.sa.uitls.getPrays
+import com.athkar.sa.uitls.getPraysForCalendar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDate
 import java.time.LocalTime
-import java.time.OffsetTime
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,7 +41,7 @@ class PrayViewModel @Inject constructor() : ViewModel() {
 
     // TODO: add combine flow for prayNotification and pray Info
     init {
-        _prays.value = prayInfoTest.getPrays(PrayNotification(
+        _prays.value = prayInfoTest.getPraysForCalendar(PrayNotification(
             fajer = true,
             sunRise = false,
             duhar = false,

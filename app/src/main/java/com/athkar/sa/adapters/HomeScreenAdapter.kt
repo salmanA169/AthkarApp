@@ -14,6 +14,7 @@ import com.athkar.sa.models.AthkarCategory
 import com.athkar.sa.ui.homeScreen.HomeScreenFragmentDirections
 import com.athkar.sa.ui.homeScreen.UiHomeScreens
 import com.athkar.sa.uitls.setColorAthkar
+import java.time.ZonedDateTime
 
 interface HomeScreenEvents {
     fun onAthkerClick(athkarCategory: AthkarCategory)
@@ -74,6 +75,9 @@ class AthkarContainerViewHolder(private val binding:AthkarContainerBinding):Recy
         }
         binding.favorite.setOnClickListener{
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToFavoriteFragment())
+        }
+        binding.btnCounter.setOnClickListener{
+            onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToCounterFragment())
         }
     }
     companion object{

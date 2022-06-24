@@ -3,6 +3,7 @@ package com.athkar.sa.ui.homeScreen.container.favorite
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.athkar.sa.adapters.FavoriteAdapter
 import com.athkar.sa.databinding.FavoriteFragmentBinding
 import com.athkar.sa.uitls.BaseFragment
@@ -17,8 +18,10 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>({inflater: Layout
     private val  viewModel by viewModels<FavoriteViewModel>()
     private val favoriteAdapter = FavoriteAdapter()
     override fun FavoriteFragmentBinding.init() {
-//        rvFavorite.addItemDecoration(MaterialDividerItemDecoration(requireContext(),MaterialDividerItemDecoration.VERTICAL))
         rvFavorite.adapter = favoriteAdapter
+        toolbar.setNavigationOnClickListener {
+            controller.popBackStack()
+        }
     }
 
     override fun observe() {

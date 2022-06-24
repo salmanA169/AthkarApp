@@ -1,5 +1,7 @@
 package com.athkar.sa
 
-// TODO: later
-class AthkarDate {
+import javax.inject.Inject
+
+class AthkarDate @Inject constructor() {
+
 }

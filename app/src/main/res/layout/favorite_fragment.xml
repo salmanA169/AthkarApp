@@ -14,13 +14,13 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
+            style="@style/Widget.Material3.Toolbar.Surface"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#4A98CD"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
             app:navigationIcon="@drawable/back_icon"
             app:title="المفضلة"
-            app:titleCentered="true"
-            app:titleTextColor="#fff" />
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,7 +28,6 @@
         android:id="@+id/rv_favorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EFEFF3"
         tools:listitem="@layout/favorite_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />

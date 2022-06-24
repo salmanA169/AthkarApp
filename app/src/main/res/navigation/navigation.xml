@@ -40,7 +40,15 @@
         android:id="@+id/counterFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.counter.CounterFragment"
         android:label="counter_fragment"
-        tools:layout="@layout/counter_fragment" />
+        tools:layout="@layout/counter_fragment" >
+        <action
+            android:id="@+id/action_counterFragment_to_chooseCounterSheetFragment"
+            app:destination="@id/chooseCounterSheetFragment"
+            app:enterAnim="@anim/bottom_to_top"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/top_to_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/prayFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.pray.PrayFragment"
@@ -67,4 +75,8 @@
         android:id="@+id/calendarFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.pray.calendar.CalendarFragment"
         android:label="CalendarFragment" />
+    <fragment
+        android:id="@+id/chooseCounterSheetFragment"
+        android:name="com.athkar.sa.ui.homeScreen.container.counter.ChooseCounterSheetFragment"
+        android:label="ChooseCounterSheetFragment" />
 </navigation>

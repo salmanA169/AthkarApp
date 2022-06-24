@@ -37,7 +37,6 @@ class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, c
             when(it.itemId){
                 R.id.menu_settings->{
 
-                    // TODO: implement it later
                 }
             }
             true

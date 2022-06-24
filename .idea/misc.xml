@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/salma/.gradle/caches/transforms-3/1a2f669bd91c0b39cf171c5f1aa67dc8/transformed/material-1.5.0/res/layout/m3_alert_dialog.xml" value="0.18" />
+        <entry key="..\:/Users/salma/.gradle/caches/transforms-3/1a2f669bd91c0b39cf171c5f1aa67dc8/transformed/material-1.5.0/res/layout/m3_alert_dialog_title.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/salma/.gradle/caches/transforms-3/2823c60c3f83ce89021fb5f14141ee79/transformed/core-splashscreen-1.0.0-beta02/res/drawable/icon_background.xml" value="0.104" />
         <entry key="..\:/Users/salma/.gradle/caches/transforms-3/2823c60c3f83ce89021fb5f14141ee79/transformed/core-splashscreen-1.0.0-beta02/res/layout/splash_screen_view.xml" value="0.18" />
         <entry key="..\:/Users/salma/.gradle/caches/transforms-3/fafc148d883dd50b8a4f6a43a4875d7e/transformed/material-1.5.0/res/layout/design_bottom_navigation_item.xml" value="0.15" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/_8_location_pin.xml" value="0.158" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/back_icon.xml" value="0.2115" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/bg_pray.xml" value="0.22" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/calendar_icon.xml" value="0.2115" />
@@ -18,18 +21,29 @@
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/hollowed_boxes__1_.xml" value="0.2115" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/mark_icon.xml" value="0.2115" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/more_icon.xml" value="0.176" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/radiant_gradient.xml" value="0.2115" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/refresh_icon.xml" value="0.2115" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/ripple_icon_calendar_pray.xml" value="0.143" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/se.xml" value="0.143" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/settings_icon.xml" value="0.104" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/ss.xml" value="0.197" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/sunset_icon.xml" value="0.176" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/vibrate_icon.xml" value="0.158" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/vibrate_icon_animation.xml" value="0.176" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/vibrate_off_icon.xml" value="0.176" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/drawable/vibrate_on_icon.xml" value="0.176" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/athkar_container.xml" value="0.33" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/athkar_item.xml" value="0.33" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/calendar_fragment.xml" value="0.33" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/calendar_item.xml" value="0.33" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/counter_althker_items.xml" value="0.33" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/counter_bottom_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/counter_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/edit_text_view.xml" value="0.25" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/favorite_fragment.xml" value="0.33" />
-        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/favorite_item.xml" value="0.33" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/favorite_item.xml" value="0.25" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/fragment_settings_list_dialog.xml" value="0.25" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/fragment_settings_list_dialog_item.xml" value="0.1" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/home_screen_fragment.xml" value="0.33" />
@@ -39,9 +53,15 @@
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/prayer_fragment.xml" value="0.1" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/qibla_fragment.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/layout/random_atkar_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/menu/atkar_menu.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/menu/calendar_menu.xml" value="0.33" />
+        <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/menu/counter_menu.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/salma/AndroidStudioProjects/athkar/app/src/main/res/menu/home_screen_menu.xml" value="0.22" />
         <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/drawable-watch/sym_def_app_icon.xml" value="0.184" />
+        <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/drawable/btn_checkbox_checked_mtrl.xml" value="0.2115" />
+        <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xml" value="0.1895" />
+        <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/drawable/btn_checkbox_unchecked_mtrl.xml" value="0.2115" />
+        <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/drawable/btn_checkbox_unchecked_to_checked_mtrl_animation.xml" value="0.1895" />
         <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/salma/AppData/Local/android/Sdk/platforms/android-31/data/res/layout/splash_screen_view.xml" value="0.20416666666666666" />
       </map>

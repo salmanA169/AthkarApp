@@ -13,9 +13,7 @@ data class CalendarPray(
     val asarTime: String,
     val maghrabTime: String,
     val ishaTime: String
-){
-    var isToday = false
-}
+)
 
 fun PrayInfo.toCalendarPray(): CalendarPray {
     val fajarTimeFormat =
