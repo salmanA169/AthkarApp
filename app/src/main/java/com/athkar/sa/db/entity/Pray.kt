@@ -1,13 +1,30 @@
 package com.athkar.sa.db.entity
 
 import androidx.annotation.DrawableRes
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.athkar.sa.PrayNotFoundException
 import com.athkar.sa.uitls.ConstantPatternsDate
 import java.time.LocalTime
 
+@Entity(
+    ignoredColumns = arrayOf(
+        "fajarFormatTime",
+        "sunRiseFormatTime",
+        "duharFormatTime",
+        "asarFormatTime",
+        "magrabFormatTime",
+        "ishaFormatTime",
+        "getAllTimes"
+    )
+)
 data class PrayInfo(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val date: Long,
     val city: String,
+    val month: Int,
     // save time seconds
     val fajer: Long,
     val sunRise: Long,

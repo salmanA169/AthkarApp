@@ -1,42 +1,39 @@
 package com.athkar.sa.ui.homeScreen.container.counter
 
-import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.athkar.sa.db.entity.CounterAlthker
 import com.athkar.sa.repo.Repository
-import com.athkar.sa.uitls.*
+import com.athkar.sa.uitls.getCurrentCounterAlthker
+import com.athkar.sa.uitls.getCurrentEnableVibrate
+import com.athkar.sa.uitls.updateCounterAlthker
+import com.athkar.sa.uitls.updateEnableVibrate
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class CounterViewModel @Inject constructor(
-    @ApplicationContext context: Context,
-    private val repository: Repository
+    private val repository: Repository,
+    private val dataStoreSettings: DataStore<Preferences>
 ) : ViewModel() {
 
-    data class CounterStateUI(val counterAlthker: CounterAlthker?,val enableVibrate:Boolean)
+    data class CounterStateUI(val counterAlthker: CounterAlthker?, val enableVibrate: Boolean)
 
-    private val dataStoreSettings = context.dataStoreSettings
-    private val currentCounterAltker = MutableStateFlow<List<CounterAlthker>?>(null)
+    private val currentCounterAltker = repository.getCounterAlthker()
     val currentCounterAlthker =
-        combine(currentCounterAltker, dataStoreSettings.getCurrentCounterAlthker(),dataStoreSettings.getCurrentEnableVibrate()) { i, o,enable ->
-            val find = i?.find { it.name == o }
-            CounterStateUI(find,enable)
+        combine(
+            currentCounterAltker,
+            dataStoreSettings.getCurrentCounterAlthker(),
+            dataStoreSettings.getCurrentEnableVibrate()
+        ) { i, o, enable ->
+            val find = i.find { it.name == o }
+            CounterStateUI(find, enable)
         }
-
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getCounterAlthker().collect {
-                currentCounterAltker.emit(it)
-            }
-        }
-    }
 
     fun addNewCounterAlthker(counterAlthker: CounterAlthker) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -56,7 +53,7 @@ class CounterViewModel @Inject constructor(
         }
     }
 
-    fun updateEnableVibration(enable:Boolean){
+    fun updateEnableVibration(enable: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             dataStoreSettings.updateEnableVibrate(enable)
         }

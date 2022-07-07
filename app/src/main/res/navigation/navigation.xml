@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_homeScreen_to_randomAthkarFragment"
             app:destination="@id/randomAthkarFragment" />
+        <action
+            android:id="@+id/action_homeScreen_to_locationPermissionFragment"
+            app:destination="@id/locationPermissionFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -79,4 +82,9 @@
         android:id="@+id/chooseCounterSheetFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.counter.ChooseCounterSheetFragment"
         android:label="ChooseCounterSheetFragment" />
+    <fragment
+        android:id="@+id/locationPermissionFragment"
+        android:name="com.athkar.sa.ui.startUp.permissionLocationFragment.LocationPermissionFragment"
+        android:label="fragment_location_permission"
+        tools:layout="@layout/fragment_location_permission" />
 </navigation>

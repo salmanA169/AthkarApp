@@ -1,5 +1,7 @@
 package com.athkar.sa.ui.homeScreen
 
+import android.location.LocationManager
+import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,15 +18,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, container->
-    HomeScreenFragmentBinding.inflate(inflater,container,false)
-}),HomeScreenEvents {
+class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, container ->
+    HomeScreenFragmentBinding.inflate(inflater, container, false)
+}), HomeScreenEvents {
 
     private val viewModel by viewModels<HomeScreenViewModel>()
     private val homeScreenAdapter = HomeScreenAdapter(this)
 
     override var shouldRemoveView: Boolean = false
-
 
 
     override fun HomeScreenFragmentBinding.init() {
@@ -34,8 +35,8 @@ class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, c
             collapseToolbar.setColorsFromImage(appBarImage.drawable.toBitmap())
         }
         toolbar.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.menu_settings->{
+            when (it.itemId) {
+                R.id.menu_settings -> {
 
                 }
             }

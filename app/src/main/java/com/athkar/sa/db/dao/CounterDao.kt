@@ -10,7 +10,7 @@ interface CounterDao {
     fun getCounterAlthker(): Flow<List<CounterAlthker>>
 
     @Update
-    suspend fun updateCount(CounterAlthker:CounterAlthker)
+    suspend fun updateCount(counterAlthker:CounterAlthker)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNewCounterAlthker(counterAlthker: CounterAlthker)

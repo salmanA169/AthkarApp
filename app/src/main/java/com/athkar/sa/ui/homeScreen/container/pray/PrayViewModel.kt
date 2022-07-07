@@ -26,9 +26,8 @@ class PrayViewModel @Inject constructor() : ViewModel() {
     val fakeAsar = LocalTime.parse("15:15").toSecondOfDay().toLong()
     val fakeMughrab = LocalTime.parse("18:28").toSecondOfDay().toLong()
     val fakeIsha = LocalTime.parse("19:58").toSecondOfDay().toLong()
-    val prayInfoTest = PrayInfo(
-        fakeDate,
-        "الرياض",
+    val prayInfoTest = PrayInfo(0,fakeDate,
+        "الرياض",0,
         fakeFajer,
         fakeSunrise,
         fakeDuhar,

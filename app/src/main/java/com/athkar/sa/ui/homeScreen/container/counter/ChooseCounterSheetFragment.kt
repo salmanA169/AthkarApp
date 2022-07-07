@@ -120,6 +120,7 @@ class ChooseCounterSheetFragment :
 
 
     override fun observe() {
+
         lifecycleScope.launchWhenCreated {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.counters.collect {

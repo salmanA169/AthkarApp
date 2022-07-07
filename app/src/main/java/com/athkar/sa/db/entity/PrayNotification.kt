@@ -9,5 +9,4 @@ data class PrayNotification(
     val asar :Boolean,
     val maghrab :Boolean,
     val isha :Boolean,
-){
-}
+)
