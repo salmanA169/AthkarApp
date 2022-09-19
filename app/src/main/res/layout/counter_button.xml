@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Widget.Material3.CardView.Elevated"
+
+    app:cardCornerRadius="30dp"
+    app:contentPadding="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgressIndicator2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="3"
+            android:progress="1"
+            app:indicatorSize="50dp"
+            android:scrollbarSize="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackColor="?colorSurfaceVariant"
+            app:trackThickness="3dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/circularProgressIndicator2"
+            app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator2"
+            app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator2"
+            app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator2"
+            tools:text="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

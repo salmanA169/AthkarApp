@@ -1,30 +1,21 @@
 package com.athkar.sa.ui.homeScreen.container.pray
 
-import android.animation.Animator
-import android.hardware.SensorManager
-import android.location.LocationManager
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.RotateAnimation
-import androidx.core.location.LocationListenerCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.room.RoomMasterTable
-import com.athkar.sa.Constants
 import com.athkar.sa.adapters.PrayAdapter
 import com.athkar.sa.databinding.PrayFragmentBinding
+import com.athkar.sa.db.entity.DateToday
 import com.athkar.sa.db.entity.PrayName
-import com.athkar.sa.uitls.BaseFragment
-import com.athkar.sa.uitls.ConstantPatternsDate
-import com.athkar.sa.uitls.calculateNextPrayTime
+import com.athkar.sa.uitls.*
 import dagger.hilt.android.AndroidEntryPoint
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.LocalTime
+import java.time.*
 import java.time.chrono.HijrahDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
-import java.util.*
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.DurationUnit
 
@@ -34,13 +25,17 @@ class PrayFragment :
         PrayFragmentBinding.inflate(inflater, container, false)
     }) {
 
-    private val prayAdapter = PrayAdapter()
-
+    private val prayAdapter = PrayAdapter() {
+        viewModel.updatePrayNotification(it) {
+            mainViewModel.rescheduleAlarm()
+        }
+    }
 
     private var timer: CountDownTimer? = null
     override fun PrayFragmentBinding.init() {
 
         rvPrayes.adapter = prayAdapter
+
         toolbar2.setNavigationOnClickListener {
             controller.popBackStack()
         }
@@ -48,50 +43,65 @@ class PrayFragment :
         btnCalendar.setOnClickListener {
             controller.navigate(PrayFragmentDirections.actionPrayFragmentToCalendarFragment())
         }
-        btnQibla.setOnClickListener {
-            controller.navigate(PrayFragmentDirections.actionPrayFragmentToQiblaFragment())
-        }
+//        btnQibla.setOnClickListener {
+////            controller.navigate(PrayFragmentDirections.actionPrayFragmentToQiblaFragment())
+//        }
+    }
+
+    private fun hide() {
+        binding.materialCardView2.isVisible = false
+        binding.materialCardView3.isVisible = false
+        binding.materialCardView4.isVisible = false
+    }
+
+    private fun show() {
+        binding.materialCardView2.isVisible = true
+        binding.materialCardView3.isVisible = true
+        binding.materialCardView4.isVisible = true
+
     }
 
     override fun observe() {
         viewModel.prays.observe {
-            val nextPrayName = it.calculateNextPrayTime()
-            val nextPray = it.find { it.prayName == nextPrayName }!!
+            val prayInfo = it.praysToday
+            if (prayInfo.isEmpty() || it.orderPray == null) {
+                hide()
+                return@observe
+            } else {
+                show()
+            }
+            val nextPrayName = it.orderPray
+            val nextPray = prayInfo.find { it.prayName == nextPrayName.nextPray }!!
             nextPray.isNextPray = true
             binding.tvNextPray.text = "${nextPray.prayName.namePray} بعد"
-            startTimer(nextPray.timePray, nextPray.prayName)
-            prayAdapter.submitList(it)
-        }
-        viewModel.prayInfo.observe {
-            val parseDate = LocalDate.ofEpochDay(it.date)
-            val parseDateHijrah = HijrahDate.from(parseDate)
-            binding.tvDateAr.text = parseDateHijrah.format(ConstantPatternsDate.hijrahPattern)
-            binding.tvDateEn.text = parseDate.toString()
-            binding.tvCity.text = it.city
-            binding.tvToday.text = parseDate.format(ConstantPatternsDate.todayPattern)
+            if (it.date != null) {
+                setDateAndCity(it.date)
+            }
+            startTimer(nextPrayName.calculateFromCurrentTimeToNextPrayTimeInMillis())
+            prayAdapter.submitList(prayInfo)
+
         }
     }
 
-    private fun startTimer(timeNextPray: Long, prayName: PrayName) {
+    private fun setDateAndCity(dateToday: DateToday) {
+        val parseDate = dateToday.parseDate()
+        val parseDateHijrah = HijrahDate.from(parseDate)
+        binding.tvDateAr.text = parseDateHijrah.format(ConstantPatternsDate.hijrahPattern)
+        binding.tvDateEn.text = parseDate.toString()
+        binding.tvCity.text = dateToday.city
+        binding.tvToday.text = parseDate.format(ConstantPatternsDate.todayPattern)
+    }
+
+    private fun startTimer(timeNextPray: Long) {
         timer?.cancel()
 
-
-        val currentTime = if (prayName == PrayName.FAJAR) {
-            LocalDateTime.now().until(
-                LocalDateTime.of(
-                    LocalDate.now().plusDays(1),
-                    LocalTime.ofSecondOfDay(timeNextPray)
-                ), ChronoUnit.MILLIS
-            )
-        } else {
-            LocalTime.now().until(LocalTime.ofSecondOfDay(timeNextPray), ChronoUnit.MILLIS)
-        }
-
-        timer = object : CountDownTimer(currentTime, 1000) {
+        timer = object : CountDownTimer(timeNextPray, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.tvCounterNextPray.text =
-                    LocalTime.ofSecondOfDay(millisUntilFinished.milliseconds.toLong(DurationUnit.SECONDS)).format(
-                        DateTimeFormatter.ISO_LOCAL_TIME)
+                    LocalTime.ofSecondOfDay(millisUntilFinished.milliseconds.toLong(DurationUnit.SECONDS))
+                        .format(
+                            DateTimeFormatter.ISO_LOCAL_TIME
+                        )
             }
 
             override fun onFinish() {

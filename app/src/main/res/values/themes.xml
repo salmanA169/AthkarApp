@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Athkar" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
+
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
@@ -28,10 +29,25 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="android:shadowColor">@color/md_theme_light_shadow</item>
-        <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+    </style>
+    
+    <style name="ToolbarStyle" parent="Widget.Material3.Toolbar">
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.ShapeCalenderCardView</item>
+        <item name="backgroundTint">#952</item>
 
     </style>
-
+    <style name="ThemeOverlay.App.bottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
+    </style>
+    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">#925</item>
+        <item name="enableEdgeToEdge">false</item>
+    </style>
+    <style name="changeTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">#fff</item>
+    </style>
     <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
 
         <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
@@ -62,16 +78,15 @@
     </style>
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
         <item name="cornerSize">4dp</item>
     </style>
     <style name="Theme.AppCompat.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">#654</item>
+        <item name="windowSplashScreenBackground">#fff</item>
 
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
         <item name="postSplashScreenTheme">@style/Theme.Athkar</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_background</item>
         <item name="windowSplashScreenAnimationDuration">200</item>
-        <item name="windowSplashScreenIconBackgroundColor">#159</item>
+      
     </style>
     <style name="Widget.Material3.Button.IconButton.customBackGroundAndRipple">
         <item name="android:layout_width">60dp</item>
@@ -80,14 +95,17 @@
         <item name="iconSize">25dp</item>
         <item name="android:layout_marginStart">4dp</item>
         <item name="android:layout_marginEnd">4dp</item>
-        <item name="backgroundTint">#333D48</item>
-        <item name="iconTint">#fff</item>
-        <item name="rippleColor">#0DFFFFFF</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?colorOnBackground</item>
+        <item name="iconTint">?colorOnBackground</item>
+        <item name="rippleColor">#80FFFFFF</item>
     </style>
 
     <style name="ShapeAppearance.MaterialComponents.ShapeCalenderCardView">
         <item name="cornerSizeTopLeft">8dp</item>
         <item name="cornerSizeTopRight">8dp</item>
+
+        <item name="cornerFamily">cut</item>
     </style>
 
     <style name="ShapeAppearance.MaterialComponents.ShapeCalenderCardView1">

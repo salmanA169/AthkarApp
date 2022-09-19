@@ -2,17 +2,25 @@ package com.athkar.sa.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.athkar.sa.db.dao.CounterDao
-import com.athkar.sa.db.dao.PrayInfoDao
-import com.athkar.sa.db.entity.CounterAlthker
-import com.athkar.sa.db.entity.PrayInfo
+import androidx.room.TypeConverters
+import com.athkar.sa.db.convertor.Convertors
+import com.athkar.sa.db.dao.*
+import com.athkar.sa.db.entity.*
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 
 @Database(
-    entities = [CounterAlthker::class,PrayInfo::class],
+    entities = [Athkar::class, CounterAlthker::class, PrayInfo::class, PrayNotification::class, FavoriteAthkar::class],
     version = 1
 )
-abstract class AthkarDatabase:RoomDatabase() {
+@TypeConverters(Convertors::class)
+abstract class AthkarDatabase : RoomDatabase() {
 
-    abstract val counterAlthkerDao:CounterDao
-    abstract val prayInfoDao:PrayInfoDao
+    abstract val counterAlthkerDao: CounterDao
+    abstract val prayInfoDao: PrayInfoDao
+    abstract val prayNotificationDao: PrayNotificationDao
+    abstract val athkarDao: AthkarDao
+    abstract val favoriteAlthker: FavoriteDao
 }

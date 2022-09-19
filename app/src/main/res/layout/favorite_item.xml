@@ -5,7 +5,7 @@
     android:layout_marginTop="1dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
+    android:checkable="true"
     style="@style/Widget.Material3.CardView.Elevated">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/nameAlthkr"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"

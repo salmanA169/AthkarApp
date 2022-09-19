@@ -3,9 +3,11 @@ package com.athkar.sa.models
 import com.athkar.sa.db.entity.DateToday
 import com.athkar.sa.db.entity.PrayInfo
 import com.athkar.sa.uitls.ConstantPatternsDate
+import com.athkar.sa.uitls.getDateToday
 import java.time.LocalTime
 
 data class CalendarPray(
+    val month :Int,
     val dateToday:DateToday,
     val fajarTime: String,
     val sunRiseTime: String,
@@ -27,7 +29,8 @@ fun PrayInfo.toCalendarPray(): CalendarPray {
         LocalTime.ofSecondOfDay(maghrab).format(ConstantPatternsDate.prayTimePattern1)
     val ishaTimeFormat = LocalTime.ofSecondOfDay(isha).format(ConstantPatternsDate.prayTimePattern1)
     return CalendarPray(
-        DateToday(date, city),
+        month,
+        getDateToday(),
         fajarTimeFormat,
         sunRiseTimeFormat,
         duharTimeFormat,

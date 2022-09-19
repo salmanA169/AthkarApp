@@ -1,11 +1,22 @@
 package com.athkar.sa.remote
 
+import androidx.annotation.Keep
+import com.athkar.sa.db.entity.PrayInfo
+import com.athkar.sa.uitls.formatTimePray
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.Field
+import java.time.*
+import java.time.chrono.HijrahDate
+import java.time.temporal.ChronoField
+import java.time.temporal.TemporalField
+
+@Keep
 data class ResponseCalendar(
     @SerializedName("data")
-    val data : CalenderDto
+    val data: CalenderDto
 )
+
+@Keep
 data class CalenderDto(
     @SerializedName("1")
     val january: List<TimingPrayDto>,
@@ -33,24 +44,59 @@ data class CalenderDto(
     val december: List<TimingPrayDto>,
 )
 
-fun CalenderDto.getAnnualTimes() = mapOf<Int,List<TimingPrayDto>>(
-    1 to january,
-    2 to february,
-    3 to march,
-    4 to april,
-    5 to may,
-    6 to june,
-    7 to july,
-    8 to august,
-    9 to september,
-    10 to october,
-    11 to november,
-    12 to december,
-)
-data class TimingPrayDto(
-    val timings :PrayInfoDto
+fun TimingPrayDto.toPrayInfo(city: String): PrayInfo {
+    val parseDate = LocalDateTime.ofInstant(
+        Instant.ofEpochSecond(date.timestamp),
+        ZoneId.systemDefault()
+    )
+    val hijrahDate = HijrahDate.from(parseDate)
+    val parseFajar = LocalTime.parse(timings.Fajr.formatTimePray()).toSecondOfDay().toLong()
+    val parseSunRise = LocalTime.parse(timings.Sunrise.formatTimePray()).toSecondOfDay().toLong()
+    val parseDhuhr = LocalTime.parse(timings.Dhuhr.formatTimePray()).toSecondOfDay().toLong()
+    val parseAsar = LocalTime.parse(timings.Asr.formatTimePray()).toSecondOfDay().toLong()
+    val parseMagrib = LocalTime.parse(timings.Maghrib.formatTimePray()).toSecondOfDay().toLong()
+    val parseIsha = LocalTime.parse(timings.Isha.formatTimePray()).toSecondOfDay().toLong()
+    return PrayInfo(
+        0,
+        parseDate.toEpochSecond(OffsetDateTime.now().offset),
+        city,
+        hijrahDate.get(ChronoField.MONTH_OF_YEAR),
+        hijrahDate.get(ChronoField.DAY_OF_MONTH),
+        parseFajar,
+        parseSunRise,
+        parseDhuhr,
+        parseAsar,
+        parseMagrib,
+        parseIsha
+    )
+}
 
+fun CalenderDto.getAnnualTimes() = buildList {
+    addAll(january)
+    addAll(february)
+    addAll(march)
+    addAll(april)
+    addAll(may)
+    addAll(june)
+    addAll(july)
+    addAll(august)
+    addAll(september)
+    addAll(october)
+    addAll(november)
+    addAll(december)
+
+}
+
+@Keep
+data class TimingPrayDto(
+    val timings: PrayInfoDto,
+    val date: DateTimeStampDto
 )
+@Keep
+data class DateTimeStampDto(
+    val timestamp: Long
+)
+@Keep
 data class PrayInfoDto(
     val Asr: String,
     val Dhuhr: String,

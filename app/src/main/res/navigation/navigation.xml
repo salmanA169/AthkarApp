@@ -31,14 +31,20 @@
             android:id="@+id/action_homeScreen_to_randomAthkarFragment"
             app:destination="@id/randomAthkarFragment" />
         <action
-            android:id="@+id/action_homeScreen_to_locationPermissionFragment"
-            app:destination="@id/locationPermissionFragment" />
+            android:id="@+id/action_homeScreen_to_athkarFragment"
+            app:destination="@id/athkarFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.favorite.FavoriteFragment"
         android:label="favorite_fragment"
-        tools:layout="@layout/favorite_fragment" />
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_athkarFragment"
+            app:destination="@id/athkarFragment"
+            app:popUpTo="@id/favoriteFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/counterFragment"
         android:name="com.athkar.sa.ui.homeScreen.container.counter.CounterFragment"
@@ -87,4 +93,27 @@
         android:name="com.athkar.sa.ui.startUp.permissionLocationFragment.LocationPermissionFragment"
         android:label="fragment_location_permission"
         tools:layout="@layout/fragment_location_permission" />
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.athkar.sa.ui.startUp.downloadData.DownloadFragmentDialog"
+        android:label="fragment_download"
+        tools:layout="@layout/fragment_download" >
+        <argument
+            android:name="shoudUpdate"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/athkarFragment"
+        android:name="com.athkar.sa.ui.homeScreen.athkar.AthkarFragment"
+        android:label="fragment_athkar"
+        tools:layout="@layout/fragment_athkar" >
+        <argument
+            android:name="athkar_category"
+            app:argType="com.athkar.sa.models.AthkarCategory" />
+        <argument
+            android:name="nameAlthker"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

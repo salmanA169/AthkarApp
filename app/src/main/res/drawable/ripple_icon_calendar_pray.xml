@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple android:color="@color/currentDateInCalendar" android:radius="24dp"   xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple android:color="?colorPrimary" android:radius="24dp"   xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@drawable/dots_icon"  />
 </ripple>

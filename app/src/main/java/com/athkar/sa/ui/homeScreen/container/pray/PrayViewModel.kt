@@ -1,52 +1,76 @@
 package com.athkar.sa.ui.homeScreen.container.pray
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.athkar.sa.db.entity.DateToday
-import com.athkar.sa.db.entity.Pray
 import com.athkar.sa.db.entity.PrayInfo
-import com.athkar.sa.db.entity.PrayNotification
+import com.athkar.sa.db.entity.PrayItems
+import com.athkar.sa.db.entity.PrayName
+import com.athkar.sa.repo.Repository
 import com.athkar.sa.uitls.getDateToday
 import com.athkar.sa.uitls.getPraysForCalendar
+import com.athkar.sa.uitls.updatePrayNotification
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.time.LocalDate
-import java.time.LocalTime
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import java.time.chrono.HijrahDate
+import java.time.temporal.ChronoField
 import javax.inject.Inject
 
 @HiltViewModel
-class PrayViewModel @Inject constructor() : ViewModel() {
+class PrayViewModel @Inject constructor(
+    private val repository: Repository
+) : ViewModel() {
 
-    private val _prays = MutableLiveData<List<Pray>>()
-    val prays: LiveData<List<Pray>> = _prays
-    val fakeDate = LocalDate.now().toEpochDay()
-    val fakeFajer = LocalTime.parse("03:44").toSecondOfDay().toLong()
-    val fakeSunrise = LocalTime.parse("05:10").toSecondOfDay().toLong()
-    val fakeDuhar = LocalTime.parse("11:49").toSecondOfDay().toLong()
-    val fakeAsar = LocalTime.parse("15:15").toSecondOfDay().toLong()
-    val fakeMughrab = LocalTime.parse("18:28").toSecondOfDay().toLong()
-    val fakeIsha = LocalTime.parse("19:58").toSecondOfDay().toLong()
-    val prayInfoTest = PrayInfo(0,fakeDate,
-        "الرياض",0,
-        fakeFajer,
-        fakeSunrise,
-        fakeDuhar,
-        fakeAsar,
-        fakeMughrab,
-        fakeIsha
+    data class PrayStateUi(
+        val praysToday: List<PrayItems> = emptyList(),
+        val date: DateToday? = null,
+        val orderPray: PrayInfo.OrderPray? = null
     )
-    private val _prayInfo = MutableLiveData(prayInfoTest.getDateToday())
-    val prayInfo:LiveData<DateToday> = _prayInfo
 
-    // TODO: add combine flow for prayNotification and pray Info
+    private val _prays = MutableLiveData<PrayStateUi>()
+
+    val prays = _prays
+
     init {
-        _prays.value = prayInfoTest.getPraysForCalendar(PrayNotification(
-            fajer = true,
-            sunRise = false,
-            duhar = false,
-            asar = false,
-            maghrab = false,
-            isha = false
-        ))
+        viewModelScope.launch(Dispatchers.IO) {
+            val date = HijrahDate.now()
+            repository.getPrayInfoByDayAndMonth(
+                date.get(ChronoField.DAY_OF_MONTH),
+                date.get(ChronoField.MONTH_OF_YEAR)
+            ).also { prayInfo ->
+                if (prayInfo == null) {
+                    _prays.postValue(PrayStateUi())
+                } else {
+                    repository.getPrayNotification().collect {
+                        _prays.postValue(
+                            PrayStateUi(
+                                prayInfo.getPraysForCalendar(it),
+                                prayInfo.getDateToday(),
+                                prayInfo.getCurrentOrderPray()
+                            )
+                        )
+                    }
+                }
+            }
+        }
     }
+
+    fun updatePrayNotification(prayName: PrayName,onFinish:()->Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val getCurrentPrayNotification = repository.getPrayNotification().first()
+            repository.updatePrayNotification(
+                prayName.updatePrayNotification(
+                    getCurrentPrayNotification
+                )
+            )
+        }.invokeOnCompletion {
+            if (it ==null){
+                onFinish()
+            }
+        }
+    }
+
 }

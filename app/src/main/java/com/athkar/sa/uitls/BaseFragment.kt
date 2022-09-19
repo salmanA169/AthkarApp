@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -28,7 +30,9 @@ abstract class BaseFragment<T : ViewBinding>(private val inflater: (inflater: La
     protected val binding get() = _binding!!
 
     open protected var shouldRemoveView = true
-    lateinit var controller: NavController
+    val controller by lazy {
+        findNavController()
+    }
 
     abstract fun T.init()
 
@@ -48,7 +52,7 @@ abstract class BaseFragment<T : ViewBinding>(private val inflater: (inflater: La
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.init()
-        controller = findNavController()
+
         observe()
     }
 

@@ -16,7 +16,10 @@ import com.athkar.sa.R
 import com.athkar.sa.databinding.CalendarItemBinding
 import com.athkar.sa.models.CalendarPray
 import com.athkar.sa.uitls.ConstantPatternsDate
+import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.chrono.HijrahDate
 
  interface CalendarEvent{
@@ -56,7 +59,8 @@ class CalendarItemViewHolder(private val binding:CalendarItemBinding):RecyclerVi
     fun bind(calendarPray:CalendarPray,calendarEvent: CalendarEvent){
         val currentDate = LocalDate.now()
 
-        val dateToday =  LocalDate.ofEpochDay(calendarPray.dateToday.date)
+        val dateToday =  LocalDateTime.ofInstant(Instant.ofEpochSecond(calendarPray.dateToday.date),
+            ZoneId.systemDefault()).toLocalDate()
         val todayHijrahDate = HijrahDate.from(currentDate)
         val hijrahDate = HijrahDate.from(dateToday)
         binding.tvToday.text = dateToday.format(ConstantPatternsDate.todayPattern)
@@ -75,7 +79,7 @@ class CalendarItemViewHolder(private val binding:CalendarItemBinding):RecyclerVi
 
         if (todayHijrahDate.isEqual(hijrahDate)){
             val context = binding.root.context
-            val changeAlphaColor = ColorUtils.setAlphaComponent(context.getColor(R.color.currentDateInCalendar),120)
+            val changeAlphaColor = ColorUtils.setAlphaComponent(context.getColor(R.color.md_theme_light_primary),120)
             binding.materialCardView5.setCardForegroundColor(ColorStateList.valueOf(changeAlphaColor))
         }else{
             binding.materialCardView5.setCardForegroundColor(null)

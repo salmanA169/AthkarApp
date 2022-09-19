@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CounterDao {
+
     @Query("SELECT * FROM counteralthker ")
     fun getCounterAlthker(): Flow<List<CounterAlthker>>
 

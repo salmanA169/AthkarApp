@@ -5,17 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:padding="12dp"
-
-    tools:background="@drawable/bg_pray">
+    android:padding="12dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView5"
         style="@style/Widget.Material3.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#33000000"
         app:contentPadding="6dp"
+        app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="#E4E4E4"
+
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +43,7 @@
 
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
-                app:dividerColor="#FFFFFF"
+                app:dividerColor="?colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_today"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,8 +55,6 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center"
                 android:textAlignment="center"
-
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/materialDivider4"
                 app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +66,7 @@
                 android:layout_width="0.5dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
-                app:dividerColor="#FFFFFF"
+                app:dividerColor="?colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_date_ar"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +79,6 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/materialDivider2"
                 app:layout_constraintTop_toTopOf="parent"
@@ -108,7 +103,6 @@
         style="@style/Widget.Material3.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#26000000"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="الفجر"
-                android:textColor="#FFFFFF"
+
                 app:layout_constraintEnd_toStartOf="@+id/textView10"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -141,8 +135,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="الشروق"
-                android:textColor="#FFFFFF"
+                android:text="الظهر"
+
                 app:layout_constraintEnd_toStartOf="@+id/textView9"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView10"
@@ -154,8 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="الظهر"
-                android:textColor="#FFFFFF"
+                android:text="العصر"
                 app:layout_constraintEnd_toStartOf="@+id/textView11"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -167,8 +160,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="العصر"
-                android:textColor="#FFFFFF"
+                android:text="الشروق"
+
                 app:layout_constraintEnd_toStartOf="@+id/textView8"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -181,7 +174,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="المغرب"
-                android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toStartOf="@+id/textView12"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
@@ -193,7 +185,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:text="العشاء"
-                android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView11"
@@ -204,7 +195,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -214,11 +204,10 @@
                 tools:text="07:50" />
 
             <TextView
-                android:id="@+id/tv_asar_time"
+                android:id="@+id/tv_sunrise_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView10"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
@@ -227,11 +216,10 @@
                 tools:text="07:50" />
 
             <TextView
-                android:id="@+id/tv_sunrise_time"
+                android:id="@+id/tv_duhar_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView8"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -240,11 +228,10 @@
                 tools:text="07:50" />
 
             <TextView
-                android:id="@+id/tv_duhar_time"
+                android:id="@+id/tv_asar_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView9"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -257,7 +244,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView11"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
@@ -270,7 +256,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView12"
                 app:layout_constraintStart_toStartOf="@+id/textView12"

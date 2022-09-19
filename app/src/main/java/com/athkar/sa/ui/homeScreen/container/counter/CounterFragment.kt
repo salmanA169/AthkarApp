@@ -23,8 +23,6 @@ class CounterFragment :
     private var isFirstTime = true
 
     override fun CounterFragmentBinding.init() {
-
-
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.vibrate_menu -> {

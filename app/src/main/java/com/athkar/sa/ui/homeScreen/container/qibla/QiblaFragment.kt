@@ -29,21 +29,17 @@ class QiblaFragment : BaseFragment<QiblaFragmentBinding>({inflater, container ->
             currentDegree = -o.toFloat()
         }
     }
-    @Inject
-    lateinit var o :SensorOrientation
+
     private val  viewModel by viewModels<QiblaViewModel>()
     override fun QiblaFragmentBinding.init() {
         toolbar2.setNavigationOnClickListener {
             controller.popBackStack()
         }
-        o = SensorOrientation(requireContext())
-        o.sensorEventListener = this@QiblaFragment
-        o.startListing()
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        o.stopListen()
     }
     override fun observe() {
 

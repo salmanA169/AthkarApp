@@ -6,13 +6,23 @@ import androidx.lifecycle.ViewModel
 import com.athkar.sa.db.entity.PrayInfo
 import com.athkar.sa.models.CalendarPray
 import com.athkar.sa.models.toCalendarPray
+import com.athkar.sa.repo.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 import java.time.LocalTime
+import javax.inject.Inject
 
-class CalendarViewModel : ViewModel() {
-    private val _testPrays = MutableLiveData(testPrayInfo())
-    val testPray :LiveData<List<CalendarPray>> = _testPrays
+@HiltViewModel
+class CalendarViewModel @Inject constructor(
+    private val repository: Repository
+) : ViewModel() {
 
+    val calendarPray = repository.getPrayInfo().map {
+        it.map {
+            it.toCalendarPray()
+        }
+    }
 }
 
 
@@ -29,7 +39,7 @@ fun testPrayInfo():List<CalendarPray>{
             val prayInfoTest = PrayInfo(0,
                 fakeDate,
                 "الرياض",
-                0,
+                0,0,
                 fakeFajer,
                 fakeSunrise,
                 fakeDuhar,

@@ -7,8 +7,8 @@ import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.scopes.FragmentScoped
 import java.time.format.DateTimeFormatter
 
-@Module
-@InstallIn(FragmentComponent::class)
-object DateTimeFormatter {
-
-}
+//@Module
+//@InstallIn(FragmentComponent::class)
+//object DateTimeFormatter {
+//
+//}

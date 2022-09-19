@@ -1,45 +1,23 @@
 package com.athkar.sa.ui.homeScreen.container.favorite
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.athkar.sa.db.entity.FavoriteAthkar
 import com.athkar.sa.models.AthkarCategory
+import com.athkar.sa.repo.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FavoriteViewModel : ViewModel() {
-    private val _favorites = MutableLiveData<List<FavoriteAthkar>>()
-    val favorite :LiveData<List<FavoriteAthkar>> = _favorites
+@HiltViewModel
+class FavoriteViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+    val favorites = repository.getFavorites()
 
-    init {
-        val test = buildList<FavoriteAthkar> {
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.MORNING))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.MY_ATHKAR))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
-            add(FavoriteAthkar("سورة الكهف",AthkarCategory.PRAY))
+
+    fun removeAlthker(favoriteAthkar: FavoriteAthkar){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.removeFavoriteAlthker(favoriteAthkar)
         }
-        _favorites.value = test
     }
 }

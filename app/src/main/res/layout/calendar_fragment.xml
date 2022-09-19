@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_pray"
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl">
 
@@ -17,10 +16,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#16000000"
-
+            android:elevation="1dp"
+            app:titleCentered="true"
+            style="@style/Widget.Material3.Toolbar.Surface"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/calendar_menu"

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingEnd="4dp"
+    android:paddingStart="4dp"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="5dp"
+        android:src="@drawable/bottom_shape"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nameAlthker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="?colorPrimary"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        tools:text="أذكار الصباح">
+
+
+    </com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerThickness="1dp"
+        app:dividerColor="#473"
+
+        app:dividerInsetEnd="0dp"
+        app:dividerInsetStart="0dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_bottom_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/bottom_athkar_item" />
+</androidx.appcompat.widget.LinearLayoutCompat>

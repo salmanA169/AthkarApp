@@ -13,16 +13,16 @@ import com.athkar.sa.databinding.AthkarItemBinding
 import com.athkar.sa.models.AthkarCategory
 import com.athkar.sa.ui.homeScreen.HomeScreenFragmentDirections
 import com.athkar.sa.ui.homeScreen.UiHomeScreens
-import com.athkar.sa.uitls.setColorAthkar
-import java.time.ZonedDateTime
+import com.athkar.sa.uitls.parseColor
 
 interface HomeScreenEvents {
     fun onAthkerClick(athkarCategory: AthkarCategory)
-    fun onContainerClick(destination:NavDirections)
+    fun onContainerClick(destination: NavDirections)
 }
 
 const val CONTAINER_ATHKAR = 0
 const val ATHKAR_UI = 1
+
 class HomeScreenAdapter(private val onClick: HomeScreenEvents) :
     ListAdapter<UiHomeScreens, RecyclerView.ViewHolder>(HomeScreenDifUtil()) {
     private class HomeScreenDifUtil : DiffUtil.ItemCallback<UiHomeScreens>() {
@@ -36,70 +36,79 @@ class HomeScreenAdapter(private val onClick: HomeScreenEvents) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-       return when(viewType){
-            CONTAINER_ATHKAR->{AthkarContainerViewHolder.from(parent)}
-            ATHKAR_UI->{ HomeScreenViewHolder.from(parent)}
-           else -> throw IllegalArgumentException("not found view type")
+        return when (viewType) {
+            CONTAINER_ATHKAR -> {
+                AthkarContainerViewHolder.from(parent)
+            }
+            ATHKAR_UI -> {
+                HomeScreenViewHolder.from(parent)
+            }
+            else -> throw IllegalArgumentException("not found view type")
         }
     }
 
     override fun getItemViewType(position: Int): Int {
         return getItem(position).run {
-            if (this is UiHomeScreens.AthkarContainer){
+            if (this is UiHomeScreens.AthkarContainer) {
                 CONTAINER_ATHKAR
-            }else{
+            } else {
                 ATHKAR_UI
             }
         }
     }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val items = getItem(position)
-        if (holder is HomeScreenViewHolder && items is UiHomeScreens.AthkarsUI){
-                holder.bind(items.athkar, onClick)
-        }else if (holder is AthkarContainerViewHolder){
+        if (holder is HomeScreenViewHolder && items is UiHomeScreens.AthkarsUI) {
+            holder.bind(items.athkar, onClick)
+        } else if (holder is AthkarContainerViewHolder) {
             holder.bind(onClick)
         }
     }
 
 
-
 }
 
-class AthkarContainerViewHolder(private val binding:AthkarContainerBinding):RecyclerView.ViewHolder(binding.root){
+class AthkarContainerViewHolder(private val binding: AthkarContainerBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
 
-    fun bind(onClick: HomeScreenEvents){
+    fun bind(onClick: HomeScreenEvents) {
 
         binding.btnPray.setOnClickListener {
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToPrayFragment())
         }
-        binding.favorite.setOnClickListener{
+        binding.favorite.setOnClickListener {
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToFavoriteFragment())
         }
-        binding.btnCounter.setOnClickListener{
+        binding.btnCounter.setOnClickListener {
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToCounterFragment())
         }
     }
-    companion object{
-        fun from(viewGroup: ViewGroup):AthkarContainerViewHolder{
+
+    companion object {
+        fun from(viewGroup: ViewGroup): AthkarContainerViewHolder {
             val inflater = LayoutInflater.from(viewGroup.context)
-            val binding = AthkarContainerBinding.inflate(inflater,viewGroup,false)
+            val binding = AthkarContainerBinding.inflate(inflater, viewGroup, false)
             return AthkarContainerViewHolder(binding)
         }
     }
 
 }
+
 class HomeScreenViewHolder(private val binding: AthkarItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(athkar: AthkarCategory, onClick: HomeScreenEvents) {
-        binding.view.setBackgroundColor(athkar.setColorAthkar())
-        binding.materialButton.setTextColor(athkar.setColorAthkar())
+        binding.view.setBackgroundColor(athkar.color.parseColor())
+        binding.materialButton.setTextColor(athkar.color.parseColor())
         binding.materialButton.text = athkar.nameAthkar
         binding.materialButton.rippleColor =
-            ColorStateList.valueOf(ColorUtils.setAlphaComponent(athkar.setColorAthkar(), 90))
+            ColorStateList.valueOf(ColorUtils.setAlphaComponent(athkar.color.parseColor(), 90))
 
-        onClick.onAthkerClick(athkar)
+        binding.materialButton.setOnClickListener {
+            onClick.onAthkerClick(athkar)
+        }
     }
 
     companion object {

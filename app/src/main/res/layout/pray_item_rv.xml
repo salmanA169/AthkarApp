@@ -8,29 +8,28 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/notification_pray"
-
         style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="الفجر"
         android:textAllCaps="false"
-        android:textColor="#fff"
+        android:textColor="?colorOnBackground"
         android:textSize="17sp"
         app:icon="@drawable/enable_notification_icon"
-        app:iconTint="#fff"
+        app:iconTint="?colorControlNormal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/shapeableImageView2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/enable_notification_icon" />
+       />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tint="#fff"
+        android:tint="?colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +41,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ص03:58"
-        android:textColor="#fff"
 
         android:autoSizeTextType="uniform"
         android:maxLines="1"

@@ -19,3 +19,18 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.athkar.sa.models.AthkarCategory
+-keep class com.athkar.sa.remote.ResponseCalendar
+-keep class com.athkar.sa.remote.CalenderDto
+-keep class com.athkar.sa.remote.CalenderDtoKt
+-keep class com.athkar.sa.remote.TimingPrayDto
+-keep class com.athkar.sa.remote.DateTimeStampDto
+-keep class com.athkar.sa.remote.PrayInfoDto
+-keep class com.athkar.sa.db.entity.Athkar
+-keep class com.google.gson.** { *; }
+-keep class com.google.inject.** { *; }
+-keep class org.apache.http.** { *; }
+-keep class org.apache.james.mime4j.** { *; }
+-keep class javax.inject.** { *; }
+-keep class retrofit.** { *; }

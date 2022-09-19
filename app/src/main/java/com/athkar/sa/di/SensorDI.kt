@@ -9,11 +9,11 @@ import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.scopes.FragmentScoped
 
-@InstallIn(FragmentComponent::class)
-@Module
-object SensorDI {
-
-    @Provides
-    @FragmentScoped
-    fun provideOrientationSensor(@ActivityContext context:Context) = SensorOrientation(context)
-}
+//@InstallIn(FragmentComponent::class)
+//@Module
+//object SensorDI {
+//
+////    @Provides
+////    @FragmentScoped
+////    fun provideOrientationSensor(@ActivityContext context:Context) = SensorOrientation(context)
+//}
