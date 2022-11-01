@@ -32,22 +32,28 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="toolbarStyle">@style/ToolbarStyle</item>
     </style>
-    
+
     <style name="ToolbarStyle" parent="Widget.Material3.Toolbar">
-        <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.ShapeCalenderCardView</item>
+        <item name="shapeAppearance">
+            @style/ShapeAppearance.MaterialComponents.ShapeCalenderCardView
+        </item>
         <item name="backgroundTint">#952</item>
 
     </style>
+
     <style name="ThemeOverlay.App.bottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
     </style>
+
     <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
         <item name="backgroundTint">#925</item>
         <item name="enableEdgeToEdge">false</item>
     </style>
+
     <style name="changeTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
 
         <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
@@ -57,10 +63,10 @@
         <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
 
     </style>
+
     <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
         <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
     </style>
-
 
 
     <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
@@ -80,14 +86,15 @@
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerSize">4dp</item>
     </style>
+
     <style name="Theme.AppCompat.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#fff</item>
-
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
         <item name="postSplashScreenTheme">@style/Theme.Athkar</item>
         <item name="windowSplashScreenAnimationDuration">200</item>
-      
+
     </style>
+
     <style name="Widget.Material3.Button.IconButton.customBackGroundAndRipple">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
@@ -111,5 +118,23 @@
     <style name="ShapeAppearance.MaterialComponents.ShapeCalenderCardView1">
         <item name="cornerSizeBottomLeft">8dp</item>
         <item name="cornerSizeBottomRight">8dp</item>
+    </style>
+
+    <style name="Theme.Athkar.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.Athkar.AppWidgetContainer" parent="Theme.Athkar.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+        <!-- add attrs here -->
+
     </style>
 </resources>

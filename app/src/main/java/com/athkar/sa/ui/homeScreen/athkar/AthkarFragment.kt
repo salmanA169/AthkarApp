@@ -1,5 +1,6 @@
 package com.athkar.sa.ui.homeScreen.athkar
 
+import android.appwidget.AppWidgetManager
 import android.content.res.Configuration
 import android.graphics.*
 import android.os.Build
@@ -86,14 +87,14 @@ class AthkarFragment : BaseFragment<FragmentAthkarBinding>({ inflater, container
             startActivity(getShareIntent(contentAlthker))
         }
         setDividerIfNightMode()
-        setNeverMode()
+//        setNeverMode()
     }
 
-    private fun setNeverMode() {
-        binding.viewPager.children.forEach {
-            it.overScrollMode = View.OVER_SCROLL_NEVER
-        }
-    }
+//    private fun setNeverMode() {
+//        binding.viewPager.children.forEach {
+//            it.overScrollMode = View.OVER_SCROLL_NEVER
+//        }
+//    }
 
     private fun setDividerIfNightMode() {
 
@@ -152,7 +153,7 @@ class AthkarFragment : BaseFragment<FragmentAthkarBinding>({ inflater, container
 
     private fun updateFavorite(isFavorite: Boolean) {
         binding.favorite.setIconResource(if (isFavorite) R.drawable.favorite_icon else R.drawable.unfavorite_icon)
-        binding.favorite.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+//        binding.favorite.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
     }
 
     private fun restCounter() {
