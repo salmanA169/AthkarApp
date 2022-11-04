@@ -1,42 +1,241 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Widget.Athkar.AppWidget.Container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
+    android:layout_height="match_parent"
+    android:id="@+id/widget_time_root"
     android:theme="@style/Theme.Athkar.AppWidgetContainer"
     android:orientation="vertical"
     android:layoutDirection="rtl"
+    android:backgroundTint="?colorSurfaceVariant"
     >
-    <RelativeLayout
 
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        >
+        <TextView
+            android:id="@+id/tv_date_ar"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="01/01/1998"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_today"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="الخميس"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_date_en"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="01/01/1418"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_fajar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_weight="1"
             android:text="الفجر"
-      />
+            android:gravity="center"
+            android:textColor="?colorTertiary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_sunrise"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="الشروق"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_duhar"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="الظهر"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_asar"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="العصر"
+
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_maghrb"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="المغرب"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_isha"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="العشاء"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
 
         <ImageView
+
             android:id="@+id/tv_fajar_icon"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_fajar"
+            android:layout_weight="1"
+            android:gravity="center"
             android:src="@drawable/fajer_icon"
-            />
+            android:textSize="16sp"
+            android:tint="?colorTertiary" />
+        <ImageView
+            android:id="@+id/tv_sunrise_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/sunrise_icon"
+            android:textSize="16sp"
+            android:tint="?colorOnSurfaceVariant" />
+
+        <ImageView
+            android:id="@+id/tv_duhar_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/duhar_icon"
+            android:tint="?colorOnBackground" />
+
+        <ImageView
+            android:id="@+id/tv_asar_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/asar_icon"
+            android:textSize="16sp"
+            android:tint="?colorOnBackground" />
+
+        <ImageView
+            android:id="@+id/tv_maghrb_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/sunset_icon"
+            android:textSize="16sp"
+            android:tint="?colorOnBackground" />
+
+        <ImageView
+            android:id="@+id/tv_isha_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/midnight_icon"
+            android:textSize="16sp"
+            android:tint="?colorOnBackground" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/tv_fajar_time"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_fajar_icon"
+            android:layout_weight="1"
             android:text="03:00"
-            android:textColor="#fff" />
-    </RelativeLayout>
+            android:textColor="?colorTertiary"
+            android:gravity="center"
+            android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/tv_sunrise_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="03:00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_duhar_time"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_asar_time"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00"
+
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_maghrb_time"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_isha_time"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00"
+            android:textSize="16sp" />
+    </LinearLayout>
 </LinearLayout>
