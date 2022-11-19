@@ -1,3 +1,6 @@
+# IN PROGRESS IMPLEMENT WIDGET 
+implement widget 
+<img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/widget_image.png" width="400" >
 # AthkarApp
 - Knowing prayer times and notify 
 - read athkar from Quran and sunnah
@@ -15,6 +18,7 @@
  - material 3
  - support light and dark mode
  - Alarm Manager
+ - 
 
  
  # Screenshots
