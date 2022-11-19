@@ -2,6 +2,7 @@
 
 
 <img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/Screenshot_20221119-192614_One%20UI%20Home_2.jpg" width="400" >
+
 # AthkarApp
 - Knowing prayer times and notify 
 - read athkar from Quran and sunnah
