@@ -22,3 +22,11 @@ fun getAlarmNotificationPendingIntent(
         },
         flag or PendingIntent.FLAG_IMMUTABLE
     )
+
+fun createPendingIntentActivity(
+    context: Context,
+    intent:Intent,
+    flag : Int = PendingIntent.FLAG_UPDATE_CURRENT,
+):PendingIntent {
+    return PendingIntent.getActivity(context,0,intent,flag or PendingIntent.FLAG_IMMUTABLE)
+}

@@ -1,25 +1,19 @@
 package com.athkar.sa
 
 import android.Manifest
-import android.animation.ObjectAnimator
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.provider.Settings
-import android.view.View
-import android.view.WindowManager
-import android.view.animation.AnticipateInterpolator
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +24,7 @@ import com.athkar.sa.databinding.ActivityMainBinding
 import com.athkar.sa.ui.startUp.downloadData.DownloadFragmentDialog
 import com.athkar.sa.uitls.checkLocationPermission
 import com.athkar.sa.uitls.shouldShowLocationPermissionDialog
+import com.athkar.sa.uitls.updateWidgets
 import com.athkar.sa.worker.FetchDataCalenderPrays
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -96,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.scheduleAlarm()
         createNotificationChannel()
         observe()
+        updateWidgets(this)
     }
 
     private fun showDialogLocationPermission() {

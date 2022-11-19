@@ -3,11 +3,11 @@
     style="@style/Widget.Athkar.AppWidget.Container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/widget_time_root"
+    android:id="@android:id/background"
     android:theme="@style/Theme.Athkar.AppWidgetContainer"
     android:orientation="vertical"
+
     android:layoutDirection="rtl"
-    android:backgroundTint="?colorSurfaceVariant"
     >
 
 
@@ -61,20 +61,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="الفجر"
+            android:textStyle="bold"
             android:gravity="center"
-            android:textColor="?colorTertiary"
+            android:textColor="?colorOnSurfaceVariant"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_sunrise"
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="الشروق"
+            android:textColor="?colorOnSurfaceVariant"
+
             android:textSize="16sp" />
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/tv_duhar"
             android:layout_width="0dp"
             android:gravity="center"
@@ -85,16 +90,19 @@
 
         <TextView
             android:id="@+id/tv_asar"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="العصر"
+            android:textColor="?colorOnSurfaceVariant"
 
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_maghrb"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -105,10 +113,13 @@
         <TextView
             android:id="@+id/tv_isha"
             android:layout_width="0dp"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="العشاء"
+            android:textColor="?colorOnSurfaceVariant"
+
             android:textSize="16sp" />
     </LinearLayout>
     <LinearLayout
@@ -118,7 +129,6 @@
         android:orientation="horizontal">
 
         <ImageView
-
             android:id="@+id/tv_fajar_icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -126,7 +136,7 @@
             android:gravity="center"
             android:src="@drawable/fajer_icon"
             android:textSize="16sp"
-            android:tint="?colorTertiary" />
+            android:tint="?colorOnSurfaceVariant"/>
         <ImageView
             android:id="@+id/tv_sunrise_icon"
             android:layout_width="0dp"
@@ -144,7 +154,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:src="@drawable/duhar_icon"
-            android:tint="?colorOnBackground" />
+            android:tint="?colorOnSurfaceVariant" />
 
         <ImageView
             android:id="@+id/tv_asar_icon"
@@ -154,7 +164,7 @@
             android:gravity="center"
             android:src="@drawable/asar_icon"
             android:textSize="16sp"
-            android:tint="?colorOnBackground" />
+            android:tint="?colorOnSurfaceVariant" />
 
         <ImageView
             android:id="@+id/tv_maghrb_icon"
@@ -164,7 +174,7 @@
             android:gravity="center"
             android:src="@drawable/sunset_icon"
             android:textSize="16sp"
-            android:tint="?colorOnBackground" />
+            android:tint="?colorOnSurfaceVariant" />
 
         <ImageView
             android:id="@+id/tv_isha_icon"
@@ -174,7 +184,7 @@
             android:gravity="center"
             android:src="@drawable/midnight_icon"
             android:textSize="16sp"
-            android:tint="?colorOnBackground" />
+            android:tint="?colorOnSurfaceVariant" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -185,24 +195,30 @@
         <TextView
             android:id="@+id/tv_fajar_time"
             android:layout_width="0dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="03:00"
-            android:textColor="?colorTertiary"
+            android:textColor="?colorOnSurfaceVariant"
+
             android:gravity="center"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_sunrise_time"
             android:layout_width="0dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="03:00"
+            android:textColor="?colorOnSurfaceVariant"
+
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_duhar_time"
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -213,16 +229,19 @@
         <TextView
             android:id="@+id/tv_asar_time"
             android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="03:00"
+            android:textColor="?colorOnSurfaceVariant"
 
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_maghrb_time"
             android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -232,10 +251,13 @@
         <TextView
             android:id="@+id/tv_isha_time"
             android:layout_width="0dp"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="03:00"
+            android:textColor="?colorOnSurfaceVariant"
+
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>
