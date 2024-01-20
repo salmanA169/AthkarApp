@@ -62,7 +62,7 @@ class FetchDataCalenderPrays @AssistedInject constructor(
                 )
 
                 val fetchPrayInfo = calenderApi.getCalenderByCity(
-                    geocoder.first().locality,
+                    geocoder!!.first().locality,
                     geocoder.first().countryName,
                     year = Year.now().value
                 ).body()!!

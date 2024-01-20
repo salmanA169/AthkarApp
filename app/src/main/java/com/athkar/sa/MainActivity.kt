@@ -160,9 +160,7 @@ class MainActivity : AppCompatActivity() {
                             if (viewModel.getPrayInfoToday() == null) {
                                 val oneTimeRequestWorker =
                                     OneTimeWorkRequestBuilder<FetchDataCalenderPrays>()
-                                        .setConstraints(Constraints().apply {
-                                            requiredNetworkType = NetworkType.CONNECTED
-                                        })
+                                        .setConstraints(Constraints(NetworkType.CONNECTED))
                                         .setInputData(workDataOf(ConstantsWorker.DOWNLOAD_DATA_WORKER_KEY to true))
                                         .build()
                                 // TODO: after fix alarm worker chain with this work

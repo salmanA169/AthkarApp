@@ -1,31 +1,21 @@
 package com.athkar.sa.ui.homeScreen
 
-import android.icu.util.TimeZone
-import android.os.CountDownTimer
-import android.os.SystemClock
-import android.text.format.DateUtils
-import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
-import com.athkar.sa.BuildConfig
 import com.athkar.sa.MainActivity
 import com.athkar.sa.R
 import com.athkar.sa.adapters.HomeScreenAdapter
 import com.athkar.sa.adapters.HomeScreenEvents
 import com.athkar.sa.databinding.HomeScreenFragmentBinding
 import com.athkar.sa.models.AthkarCategory
-import com.athkar.sa.ui.homeScreen.container.pray.PrayFragmentDirections
 import com.athkar.sa.uitls.BaseFragment
 import com.athkar.sa.uitls.formatMonthToString
 import com.athkar.sa.uitls.setColorsFromImage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.*
-import java.util.*
-import kotlin.time.Duration.Companion.milliseconds
 
 @AndroidEntryPoint
 class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, container ->
@@ -84,20 +74,20 @@ class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, c
     override fun onAthkerClick(athkarCategory: AthkarCategory) {
         controller.navigate(
             HomeScreenFragmentDirections.actionHomeScreenToAthkarFragment(
-                athkarCategory,null
+                athkarCategory, null
             )
         )
     }
 
     override fun onContainerClick(destination: NavDirections) {
-        if (destination.actionId == HomeScreenFragmentDirections.actionHomeScreenToPrayFragment().actionId){
-            if (isPrayInfoEmpty){
+        if (destination.actionId == HomeScreenFragmentDirections.actionHomeScreenToPrayFragment().actionId) {
+            if (isPrayInfoEmpty) {
                 val mainActivity = requireActivity() as MainActivity
                 mainActivity.checkPermissionAndShowDialog()
-            }else{
+            } else {
                 controller.navigate(destination)
             }
-        }else{
+        } else {
             controller.navigate(destination)
         }
 

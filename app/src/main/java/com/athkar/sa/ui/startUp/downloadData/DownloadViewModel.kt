@@ -18,9 +18,7 @@ class DownloadViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val oneTimeRequestWorker = OneTimeWorkRequestBuilder<FetchDataCalenderPrays>()
-        .setConstraints(Constraints().apply {
-            requiredNetworkType = NetworkType.CONNECTED
-        }).build()
+        .setConstraints(Constraints(NetworkType.CONNECTED)).build()
     val workInfo = workManager.getWorkInfosForUniqueWorkLiveData(ConstantsWorker.DOWNLOAD_WORKER)
     fun enqueueWorker() {
         workManager.enqueueUniqueWork(
