@@ -1,3 +1,10 @@
+<div align="center">
+</br>
+<img src="art/logo.png" width="200" />
+
+</div>
+<h1 align="center">Athkar</h1>
+
 # Implemented Widget With Dynamic color
 
 
