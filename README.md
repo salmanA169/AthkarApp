@@ -5,6 +5,30 @@
 </div>
 <h1 align="center">Athkar</h1>
 
+</br>
+<p align = "center">
+<img alt="Static Badge" src="https://img.shields.io/badge/API%2B28-brightgreen?style=for-the-badge&logo=android&logoColor=white">
+<img alt="Static Badge" src="https://img.shields.io/badge/Kotlin-%237F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
+<img alt="Static Badge" src="https://img.shields.io/badge/Jetpack%20compose-%234285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white">
+<img alt="Static Badge" src="https://img.shields.io/badge/Material%203-%23526CFE?style=for-the-badge&logo=materialdesign&logoColor=white">
+</br>
+</br>
+ <a href="https://hits.sh/github.com/salmanA169/AthkarApp/"><img alt="Hits" src="https://hits.sh/github.com/salmanA169/AthkarApp.svg?style=flat-square&color=54856b"/></a>
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/salmanA169/AthkarApp?style=flat-square&color=ffff00">
+</p>
+</br>
+
+<h4 align = "center">
+ Athkar App is Prayer remembrance specialized application designed to assist Muslims in performing the five daily prayers regularly and to remind them of important supplications associated with prayer. 
+ </br>
+ </br>
+ This app offers a variety of features aimed at facilitating users' organization and enhancement of their religious experience
+</h4>
+
+<div align="center">
+</br>
+<img src="art/banner.png"/>
+
 # Implemented Widget With Dynamic color
 
 
