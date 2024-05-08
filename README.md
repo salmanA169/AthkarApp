@@ -13,8 +13,9 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/Material%203-%23526CFE?style=for-the-badge&logo=materialdesign&logoColor=white">
 </br>
 </br>
- <a href="https://hits.sh/github.com/salmanA169/AthkarApp/"><img alt="Hits" src="https://hits.sh/github.com/salmanA169/AthkarApp.svg?style=flat-square&color=54856b"/></a>
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/salmanA169/AthkarApp?style=flat-square&color=ffff00">
+<a href="https://hits.sh/github.com/salmanA169/AthkarApp/"><img alt="Hits" src="https://hits.sh/github.com/salmanA169/AthkarApp.svg?style=for-the-badge&color=54856b"/></a>
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/salmanA169/AthkarApp?style=for-the-badge&label=%20%20%20STARS%20%20%20%20&color=ffff00">
+
 </p>
 </br>
 
