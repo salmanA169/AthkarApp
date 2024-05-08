@@ -28,7 +28,7 @@
 <div align="center">
 </br>
 <img src="art/banner.png"/>
-
+</div>
 # Implemented Widget With Dynamic color
 
 
