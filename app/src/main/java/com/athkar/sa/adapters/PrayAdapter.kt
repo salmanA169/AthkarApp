@@ -1,12 +1,10 @@
 package com.athkar.sa.adapters
 
 import android.content.res.ColorStateList
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -71,23 +69,12 @@ class PrayViewHolder(private val binding: PrayItemRvBinding) :
 //            binding.notificationPray.setTextColor(ContextCompat.getColor(context,R.color.currentPrayColor))
 //            binding.notificationPray.setIconTintResource(R.color.currentPrayColor)
 //            binding.tvTimePray.setTextColor(ContextCompat.getColor(context,R.color.currentPrayColor))
-            val typedValue = TypedValue()
-            context.theme.resolveAttribute(
-                com.google.android.material.R.attr.colorPrimary,
-                typedValue,
-                true
-            )
-            val typedValueSecondary  =TypedValue()
-                context.theme.resolveAttribute(
-                com.google.android.material.R.attr.colorSecondary,
-                typedValueSecondary,
-                true
-            )
-            binding.root.setBackgroundColor(ColorUtils.setAlphaComponent(typedValueSecondary.data,80))
-            binding.shapeableImageView2.drawable.setTint(typedValue.data)
-            binding.notificationPray.setTextColor(typedValue.data)
-            binding.notificationPray.iconTint = ColorStateList.valueOf(typedValue.data)
-            binding.tvTimePray.setTextColor(typedValue.data)
+            val color = context.getColor(R.color.currentPrayColor)
+//            binding.root.setBackgroundColor(ColorUtils.setAlphaComponent(color,80))
+            binding.shapeableImageView2.drawable.setTint(color)
+            binding.notificationPray.setTextColor(color)
+            binding.notificationPray.iconTint = ColorStateList.valueOf(color)
+            binding.tvTimePray.setTextColor(color)
         }else{
             val typedValue = TypedValue()
             val typedBackGround = TypedValue()
@@ -101,7 +88,7 @@ class PrayViewHolder(private val binding: PrayItemRvBinding) :
                 typedValue,
                 true
             )
-            binding.root.setBackgroundColor(typedBackGround.data)
+//            binding.root.setBackgroundColor(typedBackGround.data)
             binding.shapeableImageView2.drawable.setTint(typedValue.data)
             binding.notificationPray.setTextColor(typedValue.data)
             binding.notificationPray.iconTint = ColorStateList.valueOf(typedValue.data)

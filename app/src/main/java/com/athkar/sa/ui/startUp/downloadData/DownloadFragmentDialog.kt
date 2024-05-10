@@ -18,7 +18,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.work.WorkInfo
 import com.athkar.sa.databinding.FragmentDownloadBinding
-import com.athkar.sa.uitls.checkConnection
+import com.athkar.sa.uitls.hasNetwork
 import com.athkar.sa.uitls.checkLocationPermission
 import com.google.android.material.shape.MaterialShapeDrawable
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,7 +58,7 @@ class DownloadFragmentDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDownloadBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -102,7 +102,7 @@ class DownloadFragmentDialog : DialogFragment() {
 //            controller.navigate(R.id.locationPermissionFragment)
         } else {
             viewModel.enqueueWorker()
-            if (!connectivityManager.checkConnection()) {
+            if (!connectivityManager.hasNetwork()) {
                 binding.down.text = "الرجاء التحقق من اتصالك بالانترنت"
                 binding.circularProgressIndicator.isVisible = false
             }

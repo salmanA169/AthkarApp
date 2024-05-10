@@ -8,6 +8,4 @@ import javax.inject.Inject
 @HiltViewModel
 class LocationPermissionViewModel @Inject constructor(
     private val repository: Repository
-) : ViewModel() {
-
-}
+) : ViewModel()

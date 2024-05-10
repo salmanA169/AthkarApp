@@ -31,7 +31,6 @@ class HomeScreenFragment : BaseFragment<HomeScreenFragmentBinding>({ inflater, c
 
     override fun HomeScreenFragmentBinding.init() {
         rvHomeScreen.adapter = homeScreenAdapter
-
         lifecycleScope.launch(Dispatchers.Default) {
             collapseToolbar.setColorsFromImage(appBarImage.drawable.toBitmap())
         }

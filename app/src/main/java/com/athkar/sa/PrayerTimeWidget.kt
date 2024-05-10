@@ -4,7 +4,9 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import android.util.Log
+import android.content.res.Resources
+import android.content.res.Resources.Theme
+import android.os.Build
 import android.widget.RemoteViews
 import com.athkar.sa.db.entity.PrayName
 import com.athkar.sa.models.toCalendarPray
@@ -12,7 +14,10 @@ import com.athkar.sa.repo.Repository
 import com.athkar.sa.uitls.ConstantPatternsDate
 import com.athkar.sa.uitls.createPendingIntentActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.chrono.HijrahDate
 import java.time.temporal.ChronoField
@@ -68,7 +73,9 @@ class PrayerTimeWidget : AppWidgetProvider() {
             remoteViews,
             repository,
             appWidgetId,
-            appWidgetManager
+            appWidgetManager,
+            context.resources,
+            context.theme
         )
 
     }
@@ -79,13 +86,14 @@ class PrayerTimeWidget : AppWidgetProvider() {
         remoteViews: RemoteViews,
         repository: Repository,
         widgetId: Int,
-        appWidgetManager: AppWidgetManager
+        appWidgetManager: AppWidgetManager,
+        resource: Resources,
+        theme: Theme
     ) {
         val pendingResult = goAsync()
         scope.launch(Dispatchers.IO) {
             val getPrayTime = repository.getPrayInfoByDayAndMonth(dayOfWeekAr, monthOfYearAr)
             if (getPrayTime == null) {
-                // TODO: show error layout to download data first
             } else {
                 val getNextPray = getPrayTime.getCurrentOrderPray()
                 val calendarPray = getPrayTime.toCalendarPray()
@@ -97,7 +105,8 @@ class PrayerTimeWidget : AppWidgetProvider() {
                 remoteViews.setTextViewText(R.id.tv_isha_time, calendarPray.ishaTime)
                 val getIdsView = getNextPrayIds(getNextPray.nextPray)
                 changeColorById(
-                    com.google.android.material.R.attr.colorPrimary,
+                    resource.getColor(R.color.currentPrayColor, theme),
+                    resource.getColor(R.color.white, theme),
                     remoteViews,
                     getIdsView.tvPray,
                     getIdsView.iconId,
@@ -113,49 +122,61 @@ class PrayerTimeWidget : AppWidgetProvider() {
         PrayName.FAJAR -> {
             ViewIdsWidget(R.id.tv_fajar, R.id.tv_fajar_icon, R.id.tv_fajar_time)
         }
+
         PrayName.SUNRISE -> {
             ViewIdsWidget(R.id.tv_sunrise_time, R.id.tv_sunrise_icon, R.id.tv_sunrise_time)
         }
+
         PrayName.DUHAR -> {
             ViewIdsWidget(R.id.tv_duhar, R.id.tv_duhar_icon, R.id.tv_duhar_time)
-
         }
+
         PrayName.ASAR -> {
             ViewIdsWidget(R.id.tv_asar, R.id.tv_asar_icon, R.id.tv_asar_time)
-
         }
+
         PrayName.MAGHRAB -> {
             ViewIdsWidget(R.id.tv_maghrb, R.id.tv_maghrb_icon, R.id.tv_maghrb_time)
-
         }
+
         PrayName.ISHA -> {
             ViewIdsWidget(R.id.tv_isha, R.id.tv_isha_icon, R.id.tv_isha_time)
-
         }
     }
 
     private fun changeColorById(
         color: Int,
+        defaultColor: Int,
         remoteViews: RemoteViews,
         prayId: Int,
         iconId: Int,
-        prayTime: Int
+        prayTime: Int,
     ) {
         removePreviousPray(
             listIds,
             prayId,
             iconId,
             prayTime,
-            com.google.android.material.R.attr.colorOnSurfaceVariant,
+            defaultColor,
             remoteViews
         )
-        remoteViews.setColorAttr(prayId, "setTextColor", color)
-        remoteViews.setColorAttr(prayTime, "setTextColor", color)
-        remoteViews.setColorAttr(
-            iconId,
-            "setColorFilter",
-            color
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            remoteViews.setColor(prayId, "setTextColor", R.color.currentPrayColor)
+            remoteViews.setColor(prayTime, "setTextColor", R.color.currentPrayColor)
+            remoteViews.setColor(
+                iconId,
+                "setColorFilter",
+                R.color.currentPrayColor
+            )
+        } else {
+            remoteViews.setTextColor(prayId, color)
+            remoteViews.setTextColor(prayTime, color)
+            remoteViews.setInt(
+                iconId,
+                "setColorFilter",
+                color
+            )
+        }
     }
 
     private fun removePreviousPray(
@@ -167,15 +188,25 @@ class PrayerTimeWidget : AppWidgetProvider() {
         remoteViews: RemoteViews
     ) {
         val newList = listIds.toMutableList()
-        newList.remove(ViewIdsWidget(prayId,iconId,prayTime))
+        newList.remove(ViewIdsWidget(prayId, iconId, prayTime))
         newList.forEach {
-            remoteViews.setColorAttr(it.tvPrayTime, "setTextColor", color)
-            remoteViews.setColorAttr(it.tvPray, "setTextColor", color)
-            remoteViews.setColorAttr(
-                it.iconId,
-                "setColorFilter",
-                color
-            )
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                remoteViews.setColor(it.tvPrayTime, "setTextColor", R.color.white)
+                remoteViews.setColor(it.tvPray, "setTextColor", R.color.white)
+                remoteViews.setColor(
+                    it.iconId,
+                    "setColorFilter",
+                    R.color.white
+                )
+            } else {
+                remoteViews.setTextColor(it.tvPrayTime, color)
+                remoteViews.setTextColor(it.tvPray, color)
+                remoteViews.setInt(
+                    it.iconId,
+                    "setColorFilter",
+                    color
+                )
+            }
         }
     }
 

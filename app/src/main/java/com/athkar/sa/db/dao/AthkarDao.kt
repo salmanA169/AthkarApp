@@ -12,6 +12,9 @@ interface AthkarDao {
     @Query("SELECT * FROM athkar WHERE category = :category")
     suspend fun getAthkarByCategory(category: AthkarCategory):List<Athkar>
 
+    @Query("SELECT * FROM athkar ")
+    suspend fun getAllAthkar():List<Athkar>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAthkar(athkar: Athkar)
 

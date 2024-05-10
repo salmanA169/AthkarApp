@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 val Context.dataStoreSettings: DataStore<Preferences> by preferencesDataStore(name = "settings")
-
+val Context.quranSettingsDataStore :DataStore<Preferences> by preferencesDataStore(name = "quran-settings")
 fun DataStore<Preferences>.getCurrentCounterAlthker():Flow<String>{
     return data.map {
         it[Constants.COUNTER_AKTHKER_DATASTORE_KEY]?: Constants.EMPTY_COUNTERALTHKER

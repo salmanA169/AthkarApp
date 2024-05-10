@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.athkar.sa.db.entity.CounterAlthker
+import com.athkar.sa.di.SettingsDataStore
 import com.athkar.sa.repo.Repository
 import com.athkar.sa.uitls.getCurrentCounterAlthker
 import com.athkar.sa.uitls.getCurrentEnableVibrate
@@ -19,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CounterViewModel @Inject constructor(
     private val repository: Repository,
-    private val dataStoreSettings: DataStore<Preferences>
+    @SettingsDataStore private val dataStoreSettings: DataStore<Preferences>
 ) : ViewModel() {
 
     data class CounterStateUI(val counterAlthker: CounterAlthker?, val enableVibrate: Boolean)

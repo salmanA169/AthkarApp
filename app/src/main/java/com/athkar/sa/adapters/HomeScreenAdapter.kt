@@ -84,6 +84,9 @@ class AthkarContainerViewHolder(private val binding: AthkarContainerBinding) :
         binding.btnCounter.setOnClickListener {
             onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToCounterFragment())
         }
+        binding.Quran.setOnClickListener {
+            onClick.onContainerClick(HomeScreenFragmentDirections.actionHomeScreenToQuranFragment())
+        }
     }
 
     companion object {

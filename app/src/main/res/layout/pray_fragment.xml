@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+
     android:layoutDirection="rtl"
 
     tools:context=".ui.homeScreen.container.pray.PrayFragment">
@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:fitsSystemWindows="true"
             app:title="مواقيت الصلوات"
             app:titleCentered="true"
             style="@style/Widget.Material3.Toolbar.Surface"

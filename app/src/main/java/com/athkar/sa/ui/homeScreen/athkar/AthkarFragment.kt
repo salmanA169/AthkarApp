@@ -4,11 +4,19 @@ import android.appwidget.AppWidgetManager
 import android.content.res.Configuration
 import android.graphics.*
 import android.os.Build
+import android.util.Log
 import android.view.HapticFeedbackConstants
 import android.view.View
+import android.view.ViewGroup.MarginLayoutParams
+import android.view.WindowInsets
+import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
@@ -33,7 +41,9 @@ class AthkarFragment : BaseFragment<FragmentAthkarBinding>({ inflater, container
     lateinit var athkarFragmentPager: AthkarFragmentPager
     private val TAG = javaClass.simpleName
     private var contentAlthker = ""
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun FragmentAthkarBinding.init() {
+
 
         athkarFragmentPager = AthkarFragmentPager(this@AthkarFragment)
         viewModel.categoryAlthker = args.athkarCategory
@@ -87,6 +97,14 @@ class AthkarFragment : BaseFragment<FragmentAthkarBinding>({ inflater, container
             startActivity(getShareIntent(contentAlthker))
         }
         setDividerIfNightMode()
+        binding.toolbarAthkar.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.getInsets(WindowInsets.Type.statusBars()).top)
+            insets
+        }
+        binding.cardview.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(bottom = insets.getInsets(WindowInsets.Type.navigationBars()).bottom)
+            insets
+        }
 //        setNeverMode()
     }
 
@@ -136,7 +154,7 @@ class AthkarFragment : BaseFragment<FragmentAthkarBinding>({ inflater, container
                     restCounter()
                     val getAthkarInfo = it.getAthkarByPosition(position)
                     viewModel.updateTimesAlthker(getAthkarInfo.times)
-                    viewModel.currentNameOfAlthker = getAthkarInfo.nameAlthker!!
+                    viewModel.currentNameOfAlthker = getAthkarInfo.nameAlthker
                     viewModel.updateFavorite()
                     contentAlthker = getAthkarInfo.getContentAlthker()
                     updatePositionText(position, it.getSizeAthkr())

@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.athkar.sa.Constants
 import com.athkar.sa.ConstantsWorker
 import com.athkar.sa.db.entity.getDefaultPrayNotification
+import com.athkar.sa.di.CalendarApiProvider
 import com.athkar.sa.remote.CalenderApi
 import com.athkar.sa.remote.getAnnualTimes
 import com.athkar.sa.remote.toPrayInfo
@@ -21,19 +21,15 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.time.Year
-import java.util.*
+import java.util.Locale
 
 @HiltWorker
 class FetchDataCalenderPrays @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParameters: WorkerParameters,
     private val locationService: FusedLocationProviderClient,
-    private val calenderApi: CalenderApi,
+    @CalendarApiProvider private val calenderApi: CalenderApi,
     private val repository: Repository
 ) : CoroutineWorker(context, workerParameters) {
 

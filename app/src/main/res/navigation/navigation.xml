@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_homeScreen_to_athkarFragment"
             app:destination="@id/athkarFragment" />
+        <action
+            android:id="@+id/action_homeScreen_to_quranFragment"
+            app:destination="@id/quranFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -115,5 +118,23 @@
             android:name="nameAlthker"
             app:argType="string"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/quranFragment"
+        android:name="com.athkar.sa.ui.homeScreen.quran.QuranFragment"
+        android:label="fragment_quran"
+        tools:layout="@layout/fragment_quran" >
+        <action
+            android:id="@+id/action_quranFragment_to_quranPage"
+            app:destination="@id/quranPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/quranPage"
+        android:name="com.athkar.sa.ui.homeScreen.quran.quran_page.QuranPage"
+        android:label="fragment_quran_page"
+        tools:layout="@layout/fragment_quran_page" >
+        <argument
+            android:name="pageNum"
+            app:argType="integer" />
     </fragment>
 </navigation>

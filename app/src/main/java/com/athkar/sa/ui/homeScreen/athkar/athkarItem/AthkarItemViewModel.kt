@@ -6,5 +6,4 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AthkarItemViewModel @Inject constructor(repository: Repository) : ViewModel() {
-}
+class AthkarItemViewModel @Inject constructor(repository: Repository) : ViewModel()

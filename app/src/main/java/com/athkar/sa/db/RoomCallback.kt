@@ -19,22 +19,35 @@ class RoomCallback @Inject constructor(@ApplicationContext private val context: 
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         try {
+            addAthkarFromAsset(context,this.db.get())
+        }catch (e:Exception){
+            Log.e("RoomCallBack", "onCreate: error", e)
+        }
 
-            context.assets.open("athkar.json").use {
-                com.google.gson.stream.JsonReader(it.reader()).use { ii->
-                    val athkarType = object : TypeToken<List<Athkar>>(){}.type
-                    val athkars = Gson().fromJson<List<Athkar>>(ii,athkarType)
-                    val getDatabase = this.db.get()
-                    CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
-                        athkars.forEach {
-                            getDatabase.athkarDao.addAthkar(it)
-                        }
+    }
+
+    override fun onOpen(db: SupportSQLiteDatabase) {
+        super.onOpen(db)
+        addAthkarFromAsset(context,this.db.get())
+    }
+    override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+        super.onDestructiveMigration(db)
+        addAthkarFromAsset(context,this.db.get())
+    }
+}
+private fun addAthkarFromAsset(context:Context,db:AthkarDatabase){
+    context.assets.open("athkar.json").use {
+        com.google.gson.stream.JsonReader(it.reader()).use { ii->
+            val athkarType = object : TypeToken<List<Athkar>>(){}.type
+            val athkars = Gson().fromJson<List<Athkar>>(ii,athkarType)
+            CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+                val getAthkar = db.athkarDao.getAllAthkar()
+                if (getAthkar.isEmpty()){
+                    athkars.forEach {
+                        db.athkarDao.addAthkar(it)
                     }
                 }
             }
-        }catch (e:Exception){
-
         }
-
     }
 }

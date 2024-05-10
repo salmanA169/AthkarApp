@@ -133,7 +133,7 @@
 
     <style name="Theme.Athkar.AppWidgetContainer" parent="Theme.Athkar.AppWidgetContainerParent">
         <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
-        <item name="appWidgetPadding">8dp</item>
+        <item name="appWidgetPadding">2dp</item>
         <!-- add attrs here -->
 
     </style>

@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.athkar.sa.MainViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 import kotlin.time.TimedValue
 import kotlin.time.measureTimedValue
 
@@ -29,7 +30,7 @@ abstract class BaseFragment<T : ViewBinding>(private val inflater: (inflater: La
     private var _binding: T? = null
     protected val binding get() = _binding!!
 
-    open protected var shouldRemoveView = true
+    protected open var shouldRemoveView = true
     val controller by lazy {
         findNavController()
     }
@@ -64,7 +65,7 @@ abstract class BaseFragment<T : ViewBinding>(private val inflater: (inflater: La
     }
 
     fun <T> Flow<T>.observeFlow(onChange: (data: T) -> Unit) {
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+        viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 collect {
                     onChange(it)

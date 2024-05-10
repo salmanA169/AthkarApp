@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "215764996484",
+    "project_id": "athkar-eeb3a",
+    "storage_bucket": "athkar-eeb3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215764996484:android:edb48df6ed338c9797cdd1",
+        "android_client_info": {
+          "package_name": "com.athkar.sa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7HR6ROVwXFoKJ1a4OKK0PlhhNqD4OJQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215764996484:android:e8ff277d8671e02e97cdd1",
+        "android_client_info": {
+          "package_name": "com.athkar.sa.appReleaseCenter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7HR6ROVwXFoKJ1a4OKK0PlhhNqD4OJQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215764996484:android:cc04510120c3260797cdd1",
+        "android_client_info": {
+          "package_name": "com.athkar.sa.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7HR6ROVwXFoKJ1a4OKK0PlhhNqD4OJQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

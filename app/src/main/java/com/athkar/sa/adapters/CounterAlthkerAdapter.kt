@@ -10,7 +10,7 @@ import com.athkar.sa.databinding.CounterAlthkerItemsBinding
 import com.athkar.sa.db.entity.CounterAlthker
 
 class CounterAlthkerAdapter(private val onClick:(name:String)->Unit):ListAdapter<CounterAlthker,CounterItemViewHolder>(CounterAlthkerDifUtil()) {
-    class CounterAlthkerDifUtil():DiffUtil.ItemCallback<CounterAlthker>(){
+    class CounterAlthkerDifUtil :DiffUtil.ItemCallback<CounterAlthker>(){
         override fun areItemsTheSame(oldItem: CounterAlthker, newItem: CounterAlthker): Boolean {
             return oldItem == newItem
         }

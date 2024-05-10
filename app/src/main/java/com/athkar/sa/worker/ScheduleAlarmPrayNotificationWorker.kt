@@ -51,8 +51,6 @@ class ScheduleAlarmPrayNotificationWorker @AssistedInject constructor(
                 pendingIntentAlarmNotification?.let {
                     val triggerTimeNextPray =
                         getNotificationDetails.calculateTriggerTimeMillieByPrayName()
-
-                    // TODO: change alarm type to wall clock
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.ELAPSED_REALTIME_WAKEUP,
                         SystemClock.elapsedRealtime() + triggerTimeNextPray,

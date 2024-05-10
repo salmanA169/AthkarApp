@@ -38,9 +38,6 @@ class QiblaFragment : BaseFragment<QiblaFragmentBinding>({inflater, container ->
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
     override fun observe() {
 
     }

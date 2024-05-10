@@ -6,7 +6,7 @@ import com.athkar.sa.db.entity.toFavoriteTracker
 import com.athkar.sa.models.FavoriteTracker
 
 class StableKeyFavoriteTracker(private val favoriteAdapter: FavoriteAdapter) : ItemKeyProvider<FavoriteTracker>(SCOPE_CACHED) {
-    override fun getKey(position: Int): FavoriteTracker? {
+    override fun getKey(position: Int): FavoriteTracker {
         return favoriteAdapter.currentList[position].toFavoriteTracker()
     }
 

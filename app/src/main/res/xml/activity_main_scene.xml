@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/down"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:touchAnchorId="@id/containerCard"
+            motion:dragDirection="dragUp"
+            motion:touchAnchorSide="top"
+            motion:limitBoundsTo="@id/containerCard"
+            />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" >
+        <Constraint
+            android:id="@+id/containerCard"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            motion:layout_constraintTop_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintVertical_bias="1.0" />
+
+        <Constraint
+            android:id="@+id/fragmentContainerView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/progressPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="@id/containerCard"
+            motion:layout_constraintBottom_toTopOf="@+id/containerCard"
+            android:alpha="0">
+
+        </Constraint>
+        <Constraint
+            android:id="@+id/imageView2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            motion:layout_constraintTop_toTopOf="@+id/containerCard"
+            motion:layout_constraintStart_toStartOf="@+id/containerCard"
+            motion:layout_constraintBottom_toBottomOf="@id/containerCard"
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            motion:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/seekAudio"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/text_reader"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:alpha="0" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/containerCard"
+            motion:layout_constraintTop_toBottomOf="@+id/progressPosition"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btn_play"
+            motion:layout_constraintHorizontal_bias="1.0"
+            motion:layout_constraintVertical_bias="0.0"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/text_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/progressPosition"
+            motion:layout_constraintStart_toEndOf="@id/imageView2"
+            motion:layout_constraintBottom_toBottomOf="@id/containerCard"
+            motion:layout_constraintEnd_toStartOf="@id/btn_play"
+            motion:layout_constraintVertical_bias="0.3"
+            motion:layout_constraintHorizontal_bias="0"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/timeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/containerCard"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible" />
+        <Constraint
+            android:id="@+id/imageView2"
+            android:layout_width="158dp"
+            android:layout_height="158dp"
+            motion:layout_constraintBottom_toBottomOf="@id/containerCard"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintTop_toTopOf="@+id/containerCard"
+            motion:layout_constraintStart_toStartOf="@+id/containerCard"
+            android:layout_marginTop="0dp"
+
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintVertical_bias="0.26"
+            android:visibility="visible" />
+        <Constraint
+            android:id="@+id/text_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/imageView2"
+            motion:layout_constraintStart_toStartOf="@id/containerCard"
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            android:visibility="visible" />
+
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/text_reader"
+            android:id="@+id/seekAudio"
+            android:progress="100"
+            motion:layout_constraintStart_toEndOf="@+id/fragmentContainerView"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:visibility="visible">
+        </Constraint>
+
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/containerCard"
+            motion:layout_constraintTop_toBottomOf="@+id/seekAudio"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btn_play"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="32dp"
+            android:visibility="visible" />
+        <Constraint
+            android:id="@+id/progressPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+             />
+        <Constraint
+            android:id="@+id/fragmentContainerView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toTopOf="@id/containerCard"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/timeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            motion:layout_constraintTop_toBottomOf="@id/text_reader"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            />
+        <Constraint
+            android:id="@+id/forward5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            motion:layout_constraintTop_toTopOf="@id/btn_play"
+            motion:layout_constraintStart_toEndOf="@id/btn_play"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            />
+        <Constraint
+            android:id="@+id/back5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toTopOf="@id/btn_play"
+            motion:layout_constraintEnd_toStartOf="@id/btn_play"
+            />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/down" >
+        <Constraint
+            android:id="@+id/containerCard"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintVertical_bias="1.0" />
+
+        <Constraint
+            android:id="@+id/fragmentContainerView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toTopOf="@id/containerCard"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/progressPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            motion:layout_constraintTop_toTopOf="@id/containerCard"
+            motion:layout_constraintBottom_toTopOf="@+id/containerCard">
+        </Constraint>
+        <Constraint
+            android:id="@+id/imageView2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            motion:layout_constraintTop_toTopOf="@+id/containerCard"
+            motion:layout_constraintStart_toStartOf="@+id/containerCard"
+            motion:layout_constraintBottom_toBottomOf="@id/containerCard"
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            motion:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp" />
+        <Constraint
+            android:id="@+id/seekAudio"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/text_reader"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:alpha="0"
+            android:visibility="gone" />
+
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/containerCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/containerCard"
+            motion:layout_constraintTop_toBottomOf="@+id/progressPosition"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btn_play"
+            motion:layout_constraintHorizontal_bias="1.0"
+            motion:layout_constraintVertical_bias="0.0" />
+        <Constraint
+            android:id="@+id/text_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/progressPosition"
+            motion:layout_constraintStart_toEndOf="@id/imageView2"
+            motion:layout_constraintBottom_toBottomOf="@id/containerCard"
+            motion:layout_constraintEnd_toStartOf="@id/btn_play"
+            motion:layout_constraintVertical_bias="0.3"
+            motion:layout_constraintHorizontal_bias="0"
+            android:layout_marginStart="16dp"
+
+            />
+        <Constraint
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0" />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:id="@+id/duration"
+            motion:layout_constraintEnd_toStartOf="@+id/time" />
+        <Constraint
+            android:id="@id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintVertical_bias="0.62"
+
+            />
+        <Constraint
+            android:id="@+id/timeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/down"
+        motion:constraintSetEnd="@+id/start"
+
+        >
+        <OnSwipe
+            motion:touchAnchorId="@+id/containerCard"
+            motion:dragDirection="dragDown"
+            motion:touchAnchorSide="bottom"
+            motion:nestedScrollFlags="disableScroll"
+            motion:limitBoundsTo="@id/containerCard"
+            />
+    </Transition>
+</MotionScene>
+

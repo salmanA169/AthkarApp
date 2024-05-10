@@ -1,5 +1,6 @@
 package com.athkar.sa.ui.homeScreen.container.pray.calendar
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.style.ForegroundColorSpan
 import android.util.Log
@@ -51,6 +52,7 @@ class CalendarFragment : BaseFragment<CalendarFragmentBinding>({ inflater, conta
     private val calendarAdapter = CalendarAdapter(this)
     private val viewModel by viewModels<CalendarViewModel>()
     private var praysInfo = mutableSetOf<CalendarPray>()
+    @SuppressLint("RestrictedApi")
     override fun CalendarFragmentBinding.init() {
         val menuBuilder = toolbar.menu as? MenuBuilder
         menuBuilder?.setOptionalIconsVisible(true)

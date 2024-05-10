@@ -25,7 +25,7 @@ class PrayFragment :
         PrayFragmentBinding.inflate(inflater, container, false)
     }) {
 
-    private val prayAdapter = PrayAdapter() {
+    private val prayAdapter = PrayAdapter {
         viewModel.updatePrayNotification(it) {
             mainViewModel.rescheduleAlarm()
         }

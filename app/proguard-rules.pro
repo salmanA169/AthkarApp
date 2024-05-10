@@ -28,9 +28,15 @@
 -keep class com.athkar.sa.remote.DateTimeStampDto
 -keep class com.athkar.sa.remote.PrayInfoDto
 -keep class com.athkar.sa.db.entity.Athkar
+-keep class com.google.gson.reflect.TypeToken
 -keep class com.google.gson.** { *; }
 -keep class com.google.inject.** { *; }
 -keep class org.apache.http.** { *; }
 -keep class org.apache.james.mime4j.** { *; }
 -keep class javax.inject.** { *; }
 -keep class retrofit.** { *; }
+-keep class com.athkar.sa.quran.dto.QuranDataModelDto
+-keep class com.athkar.sa.quran.dto.Reciter
+-keep class com.athkar.sa.quran.dto.Moshaf
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken

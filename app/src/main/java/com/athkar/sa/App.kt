@@ -1,6 +1,8 @@
 package com.athkar.sa
 
 import android.app.Application
+import android.app.UiModeManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
+    android:fitsSystemWindows="true"
+    app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -14,9 +14,129 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/containerCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/containerCard"
+        tools:layout_editor_absoluteY="407dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/containerCard"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_reader"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/containerCard"
+        app:layout_constraintTop_toTopOf="@+id/containerCard"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Large"
+        app:srcCompat="@drawable/quran_image" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_reader"
+        style="@style/MaterialAlertDialog.Material3.Title.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="سورة البقرة| محمود خليل الحصري"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_play"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/play_arrow_24px"
+        app:iconSize="38dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekAudio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:progress="50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_reader" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/forward5"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:icon="@drawable/forward_5_24px"
+        app:iconSize="28dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back5"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:icon="@drawable/replay_5_24px"
+        app:iconSize="28dp" />
+
+    <LinearLayout
+        android:id="@+id/timeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@id/exo_position"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="start" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@id/exo_duration"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="end" />
+    </LinearLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
