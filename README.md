@@ -19,6 +19,7 @@
 </p>
 </br>
 
+
 <h4 align = "center">
  Athkar App is Prayer remembrance specialized application designed to assist Muslims in performing the five daily prayers regularly and to remind them of important supplications associated with prayer. 
  </br>
@@ -60,11 +61,11 @@
 ### Exo Play 3 media
 
  # Screenshots
- 
  <img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/ebee38fc-346a-4ba4-9ac5-aae607f969ac.JPG" width="260" >&emsp;<img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/c5c00c08-efcb-4a69-9b03-2c1d2c0aa3f2.JPG" width="260" >&emsp;<img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/88530360-26b7-4b6a-a3cc-1e540d2981c3.JPG" width="260" >&emsp;
  
  <img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/6f2d98f0-6a97-41b0-9b95-139c05b9ff84.JPG" width="260" >&emsp;<img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/586a7fb7-13ba-4804-a9a8-f7721425e04d.JPG" width="260" >&emsp;<img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/f8d4d687-9828-4006-806c-59665cbc9230.JPG" width="260" >&emsp;
  <img src="https://github.com/salmanA169/AthkarApp/blob/master/screenshots/73852ad8-dacf-42a5-a073-8c5f4bf56555.JPG" width="260" >  <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/289fd6d8-a435-444e-9696-10817c958ec1" width="260" >
  <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/c694e5aa-b306-4542-9b87-033659a8073b" width="260" > <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/b9955a80-8ec0-4a6e-87e3-5b9be80bfce1" width="260" >
- <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/86a65440-72e5-4073-b525-7f66f67da91e" width="260" >
+ <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/86a65440-72e5-4073-b525-7f66f67da91e" width="260" > <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/efd68650-423a-4f4e-a954-e8667856f5fe" width="260" >
+  <img src="https://github.com/salmanA169/AthkarApp/assets/40442174/a78ea3b2-1946-4194-99f3-e254284d4be4" width="260" >
 
