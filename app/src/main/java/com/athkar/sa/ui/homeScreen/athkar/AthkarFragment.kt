@@ -1,21 +1,14 @@
 package com.athkar.sa.ui.homeScreen.athkar
 
-import android.appwidget.AppWidgetManager
 import android.content.res.Configuration
-import android.graphics.*
+import android.graphics.Color
 import android.os.Build
 import android.util.Log
 import android.view.HapticFeedbackConstants
-import android.view.View
-import android.view.ViewGroup.MarginLayoutParams
 import android.view.WindowInsets
 import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs

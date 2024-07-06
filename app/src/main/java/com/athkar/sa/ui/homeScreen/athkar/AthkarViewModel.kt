@@ -1,6 +1,5 @@
 package com.athkar.sa.ui.homeScreen.athkar
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -87,7 +86,6 @@ class AthkarViewModel @Inject constructor(private val repository: Repository) : 
                 .sortedBy {
                     it.position
                 }
-            Log.d("Athkar ViewModel", "getAthkar: called athkart  : $getAthkar")
             _athkar.postValue(getAthkar)
         }
     }

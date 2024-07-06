@@ -22,8 +22,8 @@ android {
         applicationId = "com.athkar.sa"
         minSdk = 29
         targetSdk = 34
-        versionCode = 5
-        versionName = "3.0.0"
+        versionCode = 6
+        versionName = "3.0.1"
 
         testInstrumentationRunner = "com.athkar.sa.CustomRunner"
     }

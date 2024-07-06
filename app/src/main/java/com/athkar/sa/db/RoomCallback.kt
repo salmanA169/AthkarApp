@@ -26,10 +26,6 @@ class RoomCallback @Inject constructor(@ApplicationContext private val context: 
 
     }
 
-    override fun onOpen(db: SupportSQLiteDatabase) {
-        super.onOpen(db)
-        addAthkarFromAsset(context,this.db.get())
-    }
     override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
         super.onDestructiveMigration(db)
         addAthkarFromAsset(context,this.db.get())
