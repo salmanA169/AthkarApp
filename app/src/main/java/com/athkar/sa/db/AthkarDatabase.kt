@@ -14,8 +14,7 @@ import com.google.gson.JsonObject
 
 @Database(
     entities = [Athkar::class, CounterAlthker::class, PrayInfo::class, PrayNotification::class, FavoriteAthkar::class,SurahDownloadEntity::class],
-    version = 3,
-    autoMigrations = [AutoMigration(from = 1 , to = 2)]
+    version = 3
 )
 @TypeConverters(Convertors::class)
 abstract class AthkarDatabase : RoomDatabase() {

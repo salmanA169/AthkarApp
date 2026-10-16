@@ -52,7 +52,7 @@ class AthkarItemFragment : BaseFragment<FragmentAthkarItemBinding>({ inflater, c
             if (hadith.listHadith != null) {
                 val typeValue = TypedValue()
                 requireContext().theme.resolveAttribute(
-                    com.google.android.material.R.attr.colorPrimary,
+                    androidx.appcompat.R.attr.colorPrimary,
                     typeValue,
                     true
                 )

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Context
 import android.util.Log
+import androidx.concurrent.futures.await
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.PlaybackException
@@ -11,7 +12,6 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
-import androidx.work.await
 import com.athkar.sa.service.PlaybackService
 import com.athkar.sa.uitls.formatDuration
 import com.google.common.util.concurrent.Futures
